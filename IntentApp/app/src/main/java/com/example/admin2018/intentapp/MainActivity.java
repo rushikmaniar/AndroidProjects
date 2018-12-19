@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btn_Click(View view){
-        Intent i = new Intent("com.example.admin2018.intentapp.SecondActivity");
+        Intent i = new Intent(MainActivity.this,Main2Activity.class);
+        //Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
         startActivity(i);
     }
 }
