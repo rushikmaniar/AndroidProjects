@@ -1,16 +1,11 @@
-package com.example.admin2018.returnintentapp;
+package com.example.meet.notificationapp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.EditText;
-import android.net.Uri;
-import android.os.CountDownTimer;
-
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -29,23 +24,6 @@ public class SecondActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-    }
-
-    public void onClickBtn_ok(View view){
-        EditText txt_username = (EditText) findViewById(R.id.txt_username);
-        EditText txt_password = (EditText) findViewById(R.id.txt_password);
-
-        String username = txt_username.getText().toString();
-        String password = txt_password.getText().toString();
-
-        Intent go_to_main = new Intent(SecondActivity.this,MainActivity.class);
-
-        //key value data
-        go_to_main.putExtra("username",username);
-        go_to_main.putExtra("password",password);
-
-        setResult(RESULT_OK,go_to_main);
-        finish();
     }
 
 }

@@ -1,9 +1,8 @@
-package com.example.admin2018.returnintentapp;
+package com.example.meet.notificationapp;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,13 +10,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.support.v4.app.NotificationCompat;
 import android.net.Uri;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    int request_Code = 1;
-    //public Intent data1 = new Intent();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        displayNotification();
+
     }
 
     @Override
@@ -57,45 +59,25 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void loginbtnclick(View view){
-        Intent i = new Intent(MainActivity.this,SecondActivity.class);
-        startActivityForResult(i,request_Code);
+    public void displayNotification(){
+
+        NotificationCompat.Builder builer = new NotificationCompat.Builder(MainActivity.this);
+        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this, 01, intent,0);
+        builer.setContentIntent(pendingIntent);
+        builer.setDefaults(Notification.DEFAULT_ALL);
+        builer.setContentTitle("NOTIFICATION TILE HERE");
+        builer.setSmallIcon(R.mipmap.ic_launcher);
+        builer.setContentText("this is notification example");
+
+        NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(001, builer.build());
+
+
+
     }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        //data1 = data;
-        if (requestCode == request_Code) {
-            if (resultCode == RESULT_OK) {
-
-                Toast.makeText(this,data.getStringExtra("username"),
-                        Toast.LENGTH_SHORT).show();
-                Toast.makeText(this,data.getStringExtra("password"),
-                        Toast.LENGTH_SHORT).show();
-
-
-/*
-                CountDownTimer timer = new CountDownTimer(3000,2000) {
-                    @Override
-
-                    public void onTick(long millisUntilFinished) {
-                    }
-                    @Override
-                    public void onFinish() {
-                        myfunc(data1);
-                    }
-                }.start();*/
-
-
-
-
-
-            }
-        }
-    }
-    public void myfunc(Intent data1){
-        Toast.makeText(this,data1.getStringExtra("password"),
-                Toast.LENGTH_SHORT).show();
+    public void onClick(View view){
+        displayNotification();
     }
 
 }
