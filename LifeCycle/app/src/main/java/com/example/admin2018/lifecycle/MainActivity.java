@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this,"In the Oncreate() event",
                 Toast.LENGTH_SHORT).show();
-        Log.d(tag,"In the Oncreate() event");
+
 
     }
 

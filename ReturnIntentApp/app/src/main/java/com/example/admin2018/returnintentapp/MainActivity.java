@@ -15,7 +15,7 @@ import android.net.Uri;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    public Intent data1;
     int request_Code = 1;
     //public Intent data1 = new Intent();
     @Override
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        //data1 = data;
+        data1 = data;
         if (requestCode == request_Code) {
             if (resultCode == RESULT_OK) {
 
@@ -74,17 +74,19 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
 
 
-/*
+
                 CountDownTimer timer = new CountDownTimer(3000,2000) {
                     @Override
 
                     public void onTick(long millisUntilFinished) {
+
                     }
                     @Override
                     public void onFinish() {
-                        myfunc(data1);
+                        Toast.makeText(this,data1.getStringExtra("password"),
+                                Toast.LENGTH_SHORT).show();
                     }
-                }.start();*/
+                }.start();
 
 
 
