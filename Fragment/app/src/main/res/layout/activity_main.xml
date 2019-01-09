@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="activity.android.cc.fragment.MainActivity">
 
-    <RelativeLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
 
-        <fragment
-            android:id="@+id/fragment2"
-            android:name="com.example.admin2018.fragment.BlankFragment1"
-            android:layout_width="match_parent"
-            android:layout_height="250dp" />
+    <fragment
+        android:name="activity.android.cc.fragment.fragment1"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment1">
+    </fragment>
 
-        <fragment
-            android:id="@+id/fragment3"
-            android:name="com.example.admin2018.fragment.BlankFragment2"
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="258dp" />
-    </RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+    <fragment
+        android:name="activity.android.cc.fragment.fragment2"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment2">
+    </fragment>
+
+</LinearLayout>

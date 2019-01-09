@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.admin2018.fragment">
+    package="activity.android.cc.fragment">
 
     <application
         android:allowBackup="true"

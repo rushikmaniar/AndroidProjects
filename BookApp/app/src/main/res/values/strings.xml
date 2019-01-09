@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BookApp</string>
+    <string name="beginnig_android_programming_with_as">Beginnig Android Programming With AS</string>
+    <string name="intro_to_android">Intro. To Android</string>
+    <string name="mobile_ap_development_a_to_z">Mobile Ap Development A To Z</string>
+    <string name="android_books">Android Books</string>
+</resources>
