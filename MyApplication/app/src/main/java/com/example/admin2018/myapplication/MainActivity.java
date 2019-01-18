@@ -3,9 +3,9 @@ package com.example.admin2018.myapplication;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,30 +19,64 @@ import com.google.gson.Gson;
 
 import org.json.*;
 
-import java.net.InetAddress;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.*;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
 
 
 public class MainActivity extends AppCompatActivity {
 
     String url = "http://192.168.1.79:90/vanshavali/mobile/login/registerUser";
-
-
+    public static final MediaType JSON
+            = MediaType.get("application/json; charset=utf-8");
+    OkHttpClient client = new OkHttpClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(isConnectedToServer(url,2000)){
+        enableStrictMode();
+
+
+
+        if((isConnectedToServer(url,2000))){
+            //myfunc1(this.url,arr);
+            HashMap arr = new HashMap();
+            arr.put("user_name","abc");
+            arr.put("user_pass","123");
+
+            VanshavaliServices obj1 = new VanshavaliServices();
+            obj1.params.put("key1", "value1");
+            obj1.params.put("key2", "value2");
+
+            try {
+                String response = obj1.post("vanshavali/mobile/login/registerUser", obj1.params);
+
+                JSONObject obj = new JSONObject(response);
+
+                TextView outputText = (TextView) findViewById(R.id.outputText);
+                JSONObject j = obj.getJSONObject("vanshavali_response");
+                outputText.setText(j.getString("message"));
+
+            }catch (Exception e){
+                Toast.makeText(MainActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
+            }
+
             Toast.makeText(MainActivity.this,"Connected",Toast.LENGTH_LONG).show();
         }else {
             Toast.makeText(MainActivity.this,"Error Connected",Toast.LENGTH_LONG).show();
         }
 
     }
+    public void enableStrictMode()
+    {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 
+        StrictMode.setThreadPolicy(policy);
+    }
     public void myfunc() {
        /* try {
 
@@ -78,10 +112,10 @@ public class MainActivity extends AppCompatActivity {
         queue.add(stringRequest);
     }
 
-    public void myfunc1() {
+    public void myfunc1(String url,HashMap param) {
         final TextView mTextView = (TextView) findViewById(R.id.outputText);
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://192.168.1.79:90/vanshavali/mobile/login/registerUser";
+
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
@@ -133,8 +167,11 @@ public class MainActivity extends AppCompatActivity {
             connection.connect();
             return true;
         } catch (Exception e) {
-            // Handle your exceptions
+            // Handle your exception
+            e.printStackTrace();
             return false;
         }
     }
+
+
 }
