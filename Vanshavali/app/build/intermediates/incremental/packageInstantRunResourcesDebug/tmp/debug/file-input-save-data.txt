@@ -1,0 +1,11 @@
+#Internal package file, do not edit.
+#Thu Jan 10 19:37:52 IST 2019
+1.base=E\:\\Christ College\\BCA\\Rushik\\AndroidProjects\\Vanshavali\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+0.baseType=DIRECTORY
+1.baseType=DIRECTORY
+count=2
+1.set=ASSET
+0.path=images/logo.png
+0.set=ASSET
+0.base=E\:\\Christ College\\BCA\\Rushik\\AndroidProjects\\Vanshavali\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+1.path=images/treelogin.psd

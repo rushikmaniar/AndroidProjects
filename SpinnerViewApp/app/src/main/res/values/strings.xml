@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SpinnerViewApp</string>
+    <string-array name="tybca_array">
+        <item>J2EE</item>
+        <item>ASPNet</item>
+        <item>SEO</item>
+        <item>Android</item>
+        <item>DWDM</item>
+        <item>Python</item>
+    </string-array>
+</resources>
