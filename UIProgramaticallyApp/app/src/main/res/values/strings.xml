@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">UIProgramaticallyApp</string>
+    <string-array name="student_list">
+        <item>Rushik</item>
+        <item>Meet</item>
+        <item>khadhija</item>
+        <item>vikram</item>
+        <item>Kumar</item>
+        <item>Kemmy</item>
+        <item>Gaurav</item>
+        <item>Kajal</item>
+        <item>Rachna</item>
+        <item>Rushi</item>
+        <item>Lidiya</item>
+        <item>Nakul</item>
+        <item>Neha</item>
+        <item>Jeel</item>
+        <item>Yash</item>
+    </string-array>
+</resources>

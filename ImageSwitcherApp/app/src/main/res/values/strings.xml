@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ImageSwitcherApp</string>
+    <string name="tree">Tree</string>
+    <string name="butterfly">Butterfly</string>
+</resources>
