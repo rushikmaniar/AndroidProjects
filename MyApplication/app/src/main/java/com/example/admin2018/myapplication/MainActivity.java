@@ -49,17 +49,19 @@ public class MainActivity extends AppCompatActivity {
             arr.put("user_pass","123");
 
             VanshavaliServices obj1 = new VanshavaliServices();
-            obj1.params.put("key1", "value1");
-            obj1.params.put("key2", "value2");
+            obj1.params.put("user_email", "rushik");
+            obj1.params.put("user_pass", "111111");
 
             try {
                 String response = obj1.post("vanshavali/mobile/login/registerUser", obj1.params);
+                TextView outputText = (TextView) findViewById(R.id.outputText);
+                outputText.setText(response);
 
-                JSONObject obj = new JSONObject(response);
+                /*JSONObject obj = new JSONObject(response);
 
                 TextView outputText = (TextView) findViewById(R.id.outputText);
                 JSONObject j = obj.getJSONObject("vanshavali_response");
-                outputText.setText(j.getString("message"));
+                outputText.setText(j.getString("message"));*/
 
             }catch (Exception e){
                 Toast.makeText(MainActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
