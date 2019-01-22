@@ -1,4 +1,4 @@
-com.example.admin2018.vanshavali
+com.example.rushik.vanshavali
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -11,10 +11,6 @@ anim abc_slide_out_bottom
 anim abc_slide_out_top
 anim abc_tooltip_enter
 anim abc_tooltip_exit
-array com_google_android_gms_fonts_certs
-array com_google_android_gms_fonts_certs_dev
-array com_google_android_gms_fonts_certs_prod
-array preloaded_fonts
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -412,7 +408,6 @@ color material_grey_850
 color material_grey_900
 color notification_action_color_filter
 color notification_icon_bg_color
-color notification_material_background_media_default_color
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -541,10 +536,6 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
-dimen subtitle_corner_radius
-dimen subtitle_outline_width
-dimen subtitle_shadow_offset
-dimen subtitle_shadow_radius
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -637,11 +628,8 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
-drawable ic_action_name
 drawable ic_launcher_background
 drawable ic_launcher_foreground
-drawable ic_treelogin
-drawable logo_back
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -656,15 +644,12 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
-drawable vanshavali_logo_background
-font architects_daughter
 id ALT
 id CTRL
 id FUNCTION
 id META
 id SHIFT
 id SYM
-id action0
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -693,8 +678,8 @@ id barrier
 id beginning
 id blocking
 id bottom
+id btn_login
 id buttonPanel
-id cancel_action
 id center
 id center_horizontal
 id center_vertical
@@ -703,7 +688,6 @@ id checkbox
 id chronometer
 id clip_horizontal
 id clip_vertical
-id cmd_submit
 id collapseActionView
 id content
 id contentPanel
@@ -714,9 +698,10 @@ id default_activity_button
 id dimensions
 id direct
 id disableHome
+id editText_pass
+id editText_username
 id edit_query
 id end
-id end_padder
 id expand_activities_button
 id expanded_menu
 id fill
@@ -724,6 +709,7 @@ id fill_horizontal
 id fill_vertical
 id forever
 id gone
+id gotosignin
 id group_divider
 id groups
 id home
@@ -732,6 +718,7 @@ id icon
 id icon_group
 id ifRoom
 id image
+id imageView
 id info
 id invisible
 id italic
@@ -740,7 +727,6 @@ id line1
 id line3
 id listMode
 id list_item
-id media_actions
 id message
 id middle
 id multiply
@@ -753,7 +739,6 @@ id notification_main_column_container
 id packed
 id parent
 id parentPanel
-id pass
 id percent
 id progress_circular
 id progress_horizontal
@@ -789,7 +774,6 @@ id src_in
 id src_over
 id standard
 id start
-id status_bar_latest_event_content
 id submenuarrow
 id submit_area
 id tabMode
@@ -800,7 +784,7 @@ id text
 id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
-id textView
+id textView_gotosignup
 id time
 id title
 id titleDividerNoCustom
@@ -810,7 +794,6 @@ id topPanel
 id uniform
 id up
 id useLogo
-id username
 id withText
 id wrap
 id wrap_content
@@ -847,20 +830,12 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_main
+layout activity_login
+layout activity_register
 layout notification_action
 layout notification_action_tombstone
-layout notification_media_action
-layout notification_media_cancel_action
-layout notification_template_big_media
-layout notification_template_big_media_custom
-layout notification_template_big_media_narrow
-layout notification_template_big_media_narrow_custom
 layout notification_template_custom_big
 layout notification_template_icon_group
-layout notification_template_lines_media
-layout notification_template_media
-layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout select_dialog_item_material
@@ -869,9 +844,7 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 mipmap ic_launcher
 mipmap ic_launcher_round
-mipmap vanshavali_logo
-mipmap vanshavali_logo_icon
-mipmap vanshavali_logo_icon_round
+mipmap tree_logo
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -1152,14 +1125,9 @@ style TextAppearance_AppCompat_Widget_Switch
 style TextAppearance_AppCompat_Widget_TextView_SpinnerItem
 style TextAppearance_Compat_Notification
 style TextAppearance_Compat_Notification_Info
-style TextAppearance_Compat_Notification_Info_Media
 style TextAppearance_Compat_Notification_Line2
-style TextAppearance_Compat_Notification_Line2_Media
-style TextAppearance_Compat_Notification_Media
 style TextAppearance_Compat_Notification_Time
-style TextAppearance_Compat_Notification_Time_Media
 style TextAppearance_Compat_Notification_Title
-style TextAppearance_Compat_Notification_Title_Media
 style TextAppearance_Widget_AppCompat_ExpandedMenu_Item
 style TextAppearance_Widget_AppCompat_Toolbar_Subtitle
 style TextAppearance_Widget_AppCompat_Toolbar_Title

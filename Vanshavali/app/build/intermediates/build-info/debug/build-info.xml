@@ -5,48 +5,78 @@
     build-mode="COLD"
     density="xhdpi"
     format="10"
+    ir-eligibility="R_CLASS_CHANGE"
     plugin-version="3.2.1"
-    timestamp="1547130286241"
+    timestamp="1548163439581"
     token="-3107432608994835178"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="13009" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="4107" />
     <task
         name="verifier"
-        duration="0" />
+        duration="369" />
+
+    <artifact
+        location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1547129254882"
+        ir-eligibility="CLASS_ADDED"
+        timestamp="1548162016426"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
             location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
             location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
             location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
@@ -55,10 +85,10 @@
             location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
             location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
@@ -66,16 +96,36 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1547129596674"
+        ir-eligibility="R_CLASS_CHANGE"
+        timestamp="1548163439581"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
+        <artifact
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\Christ College\BCA\Rushik\AndroidProjects\Vanshavali\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
-    <build
-        build-mode="COLD"
-        timestamp="1547130286241"
-        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>
