@@ -1,4 +1,4 @@
-#Tue Jan 22 18:32:37 IST 2019
-base.0=E\:\\Christ College\\BCA\\Rushik\\AndroidProjects\\Vanshavali\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Wed Jan 23 13:22:02 IST 2019
+base.0=E\:\\Rushik\\sem6\\Android\\AndroidProjects\\Vanshavali\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex
