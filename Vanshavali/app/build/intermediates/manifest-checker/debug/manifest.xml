@@ -20,8 +20,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.rushik.vanshavali.LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="com.example.rushik.vanshavali.RegisterActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -29,6 +28,11 @@
             android:name="com.example.rushik.vanshavali.FamilyList"
             android:icon="@drawable/ic_launcher_foreground"
             android:label="My Families" >
+        </activity>
+        <activity
+            android:name="com.example.rushik.vanshavali.FamilyTab"
+            android:label="@string/title_activity_family_tab"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

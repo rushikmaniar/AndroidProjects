@@ -1217,7 +1217,11 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
+id tabItem
+id tabItem2
+id tabItem3
 id tabMode
+id tabs
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
@@ -1403,6 +1407,9 @@ string path_password_strike_through
 string search_menu_title
 string section_format
 string status_bar_notification_info_overflow
+string tab_text_1
+string tab_text_2
+string tab_text_3
 string title_activity_family_tab
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
