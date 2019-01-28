@@ -1003,18 +1003,23 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable calender
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable family_icon
+drawable family_member
 drawable family_tree
+drawable forest
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable icons8_hierarchy
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1032,6 +1037,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable tree_view
 id ALT
 id CTRL
 id FUNCTION
@@ -1109,7 +1115,6 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
-id fab
 id family_list
 id family_list_row
 id family_members_count
@@ -1220,6 +1225,7 @@ id submit_area
 id tabItem
 id tabItem2
 id tabItem3
+id tabItem4
 id tabMode
 id tabs
 id tag_transition_group
@@ -1410,6 +1416,7 @@ string status_bar_notification_info_overflow
 string tab_text_1
 string tab_text_2
 string tab_text_3
+string tab_text_4
 string title_activity_family_tab
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

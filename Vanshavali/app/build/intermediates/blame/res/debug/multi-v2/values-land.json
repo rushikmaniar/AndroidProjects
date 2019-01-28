@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Rushik\\sem6\\Android\\AndroidProjects\\Vanshavali\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "D:\\bca\\sem6\\AndroidProjects\\Vanshavali\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Admin2018\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\2dce65f0f7f68f3dae58ed33aa77efd6\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\aakashwin81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\9dc5f528baada8dd3b49da515b83b1c9\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Admin2018\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\a7b03a799db38aef97d5dfe33fe52432\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\aakashwin81\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\838fc3530f17adc201c392ff91d67d3e\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
