@@ -11,7 +11,15 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.add,
             R.drawable.add,
             R.drawable.add,
+
             R.drawable.add,
+            R.drawable.add,
+            R.drawable.add,
+
+            R.drawable.add,
+            R.drawable.add,
+            R.drawable.add,
+
             R.drawable.add,
             R.drawable.add,
             R.drawable.add
@@ -20,6 +28,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        GridView gridView = findViewById(R.id.gridview);
+        gridView.setAdapter(new ImageAdapter(this));
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getBaseContext(),"pic "+(position + 1)+" selected",Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 
