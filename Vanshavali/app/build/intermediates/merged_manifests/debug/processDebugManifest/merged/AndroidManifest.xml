@@ -20,10 +20,17 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.rushik.vanshavali.LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.example.rushik.vanshavali.RegisterActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        </activity>
         <activity
             android:name="com.example.rushik.vanshavali.FamilyList"
             android:icon="@drawable/ic_launcher_foreground"
@@ -32,13 +39,7 @@
         <activity
             android:name="com.example.rushik.vanshavali.FamilyTab"
             android:label="@string/title_activity_family_tab"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

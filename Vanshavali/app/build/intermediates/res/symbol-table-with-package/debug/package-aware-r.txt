@@ -1078,6 +1078,7 @@ id beginning
 id blocking
 id bottom
 id btn_login
+id btn_register
 id buttonPanel
 id cancel_action
 id center

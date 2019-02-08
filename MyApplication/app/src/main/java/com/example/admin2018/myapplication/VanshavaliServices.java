@@ -13,7 +13,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class VanshavaliServices {
-    protected static String host = "http://192.168.1.79:90/";
+    protected static String host = "http://192.168.1.103/";
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
     public Map<String, String> params = new HashMap<String, String>();
     public String url = "";

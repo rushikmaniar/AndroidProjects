@@ -29,7 +29,7 @@ import okhttp3.OkHttpClient;
 
 public class MainActivity extends AppCompatActivity {
 
-    String url = "http://192.168.1.79:90/vanshavali/mobile/login/registerUser";
+    String url = "http://192.168.1.103/vanshavali/mobile/login/registerUser";
     public static final MediaType JSON
             = MediaType.get("application/json; charset=utf-8");
     OkHttpClient client = new OkHttpClient();
@@ -57,11 +57,11 @@ public class MainActivity extends AppCompatActivity {
                 TextView outputText = (TextView) findViewById(R.id.outputText);
                 outputText.setText(response);
 
-                /*JSONObject obj = new JSONObject(response);
+                JSONObject obj = new JSONObject(response);
 
-                TextView outputText = (TextView) findViewById(R.id.outputText);
+                //TextView outputText = (TextView) findViewById(R.id.outputText);
                 JSONObject j = obj.getJSONObject("vanshavali_response");
-                outputText.setText(j.getString("message"));*/
+                outputText.setText(j.getString("message"));
 
             }catch (Exception e){
                 Toast.makeText(MainActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
