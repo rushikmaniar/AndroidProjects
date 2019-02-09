@@ -12,8 +12,10 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+
+
 public class VanshavaliServices {
-    protected static String host = "http://192.168.1.103/";
+    protected static String host = "http://192.168.1.79:90/";
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
     public Map<String, String> params = new HashMap<String, String>();
     public String url = "";
@@ -26,7 +28,6 @@ public class VanshavaliServices {
         FormBody.Builder formBuilder = new FormBody.Builder();
         if (!map.isEmpty()) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
-                //ystem.out.println(entry.getKey() + " = " + entry.getKey());
                 formBuilder.add(entry.getKey(), entry.getValue());
             }
         }

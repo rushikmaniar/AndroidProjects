@@ -56,13 +56,18 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     * */
     public void btn_registerOnClick(View view){
         validator.validate();
-        //checkif user exists
+        //check if user exists
     }
 
 
     @Override
     public void onValidationSucceeded() {
         Toast.makeText(this, "Yay! we got it right!", Toast.LENGTH_SHORT).show();
+        if(checkUserExists(editText_username.getText().toString())){
+
+        }else{
+
+        }
     }
 
     @Override
@@ -79,5 +84,23 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
             }
         }
     }
+
+    public boolean checkUserExists(String Username){
+        if(VanshavaliServices.isConnectedToVanshavaliServer()){
+            VanshavaliServices obj = new VanshavaliServices();
+            //check if user Already Exits
+            if(obj.checkUserExists(Username)){
+
+            }else{
+
+            }
+        }else{
+
+        }
+        return false;
+    }
+
+
+
 
 }

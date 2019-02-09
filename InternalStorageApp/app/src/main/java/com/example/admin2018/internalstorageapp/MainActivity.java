@@ -1,5 +1,6 @@
 package com.example.admin2018.internalstorageapp;
 
+import android.os.Build;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,11 +30,17 @@ public class MainActivity extends AppCompatActivity {
     public void onClickSave(View view) {
         String str = textBox.getText().toString();
         try {
+
+            if(Build.VERSION.SDK_INT>22){
+                requestPermissions(new String[] {"android.permission.WRITE_EXTERNAL_STORAGE"}, 1);
+            }
             //---SD Card Storage---
             File sdCard = Environment.getExternalStorageDirectory();
-            File directory = new File(sdCard.getAbsolutePath() + "/MyFiles");
+
+            File directory = new File("/storage/0F0F-1A08/MyFiles");
             //directory.mkdirs();
-            File file = new File(directory, "textfile.txt");
+            File file = new File(directory, "rushik.txt");
+            Toast.makeText(MainActivity.this,file.toString(),Toast.LENGTH_LONG).show();
             FileOutputStream fOut = new FileOutputStream(file);
             //FileOutputStream fOut = openFileOutput("textfile.txt", MODE_PRIVATE);
             OutputStreamWriter osw = new OutputStreamWriter(fOut);
@@ -57,10 +64,14 @@ public class MainActivity extends AppCompatActivity {
     public void onClickLoad(View view) {
         try {
             //---SD Storage---
+            if(Build.VERSION.SDK_INT>22){
+                requestPermissions(new String[] {"android.permission.WRITE_EXTERNAL_STORAGE"}, 1);
+            }
+            //---SD Card Storage---
             File sdCard = Environment.getExternalStorageDirectory();
 
-            File directory = new File(sdCard.getAbsolutePath() + "/MyFiles");
-            File file = new File(directory, "textfile.txt");
+            File directory = new File("/storage/0F0F-1A08/MyFiles");
+            File file = new File(directory, "rushik.txt");
             FileInputStream fIn = new FileInputStream(file);
             //FileInputStream fIn = openFileInput("textfile.txt");
             InputStreamReader isr = new InputStreamReader(fIn);

@@ -29,7 +29,7 @@ import okhttp3.OkHttpClient;
 
 public class MainActivity extends AppCompatActivity {
 
-    String url = "http://192.168.1.103/vanshavali/mobile/login/registerUser";
+    String url = "http://192.168.1.79:90/vanshavali/mobile/login/registerUser";
     public static final MediaType JSON
             = MediaType.get("application/json; charset=utf-8");
     OkHttpClient client = new OkHttpClient();
