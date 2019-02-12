@@ -37,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
             //---SD Card Storage---
             File sdCard = Environment.getExternalStorageDirectory();
 
-            File directory = new File("/storage/0F0F-1A08/MyFiles");
-            //directory.mkdirs();
+            //File directory = new File("/storage/0F0F-1A08/MyFiles");
+            File directory = new File(sdCard.getAbsolutePath());
+            directory.mkdirs();
             File file = new File(directory, "rushik.txt");
+
             Toast.makeText(MainActivity.this,file.toString(),Toast.LENGTH_LONG).show();
             FileOutputStream fOut = new FileOutputStream(file);
             //FileOutputStream fOut = openFileOutput("textfile.txt", MODE_PRIVATE);

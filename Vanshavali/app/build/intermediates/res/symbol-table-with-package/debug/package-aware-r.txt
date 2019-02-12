@@ -63,9 +63,12 @@ attr alertDialogButtonGroupStyle
 attr alertDialogCenterButtons
 attr alertDialogStyle
 attr alertDialogTheme
+attr alignment
+attr allowFlingInOverscroll
 attr allowStacking
 attr alpha
 attr alphabeticModifiers
+attr animationDuration
 attr arrowHeadLength
 attr arrowShaftLength
 attr autoCompleteTextViewStyle
@@ -239,6 +242,7 @@ attr fastScrollHorizontalTrackDrawable
 attr fastScrollVerticalThumbDrawable
 attr fastScrollVerticalTrackDrawable
 attr firstBaselineToTopHeight
+attr flingEnabled
 attr floatingActionButtonStyle
 attr font
 attr fontFamily
@@ -254,6 +258,7 @@ attr fontWeight
 attr foregroundInsidePadding
 attr gapBetweenBars
 attr goIcon
+attr hasClickableChildren
 attr headerLayout
 attr height
 attr helperText
@@ -267,6 +272,7 @@ attr hintEnabled
 attr hintTextAppearance
 attr homeAsUpIndicator
 attr homeLayout
+attr horizontalPanEnabled
 attr hoveredFocusedTranslationZ
 attr icon
 attr iconEndPadding
@@ -360,8 +366,10 @@ attr layout_optimizationLevel
 attr layout_scrollFlags
 attr layout_scrollInterpolator
 attr liftOnScroll
+attr lineColor
 attr lineHeight
 attr lineSpacing
+attr lineThickness
 attr listChoiceBackgroundIndicator
 attr listDividerAlertDialog
 attr listItemLayout
@@ -380,14 +388,21 @@ attr materialCardViewStyle
 attr maxActionInlineWidth
 attr maxButtonHeight
 attr maxImageSize
+attr maxZoom
+attr maxZoomType
 attr measureWithLargestChild
 attr menu
+attr minZoom
+attr minZoomType
 attr multiChoiceItemLayout
 attr navigationContentDescription
 attr navigationIcon
 attr navigationMode
 attr navigationViewStyle
 attr numericModifiers
+attr overPinchable
+attr overScrollHorizontal
+attr overScrollVertical
 attr overlapAnchor
 attr paddingBottomNoButtons
 attr paddingEnd
@@ -545,8 +560,12 @@ attr tooltipText
 attr track
 attr trackTint
 attr trackTintMode
+attr transformation
+attr transformationGravity
 attr ttcIndex
 attr useCompatPadding
+attr useMaxSize
+attr verticalPanEnabled
 attr viewInflaterClass
 attr voiceIcon
 attr windowActionBar
@@ -559,6 +578,7 @@ attr windowFixedWidthMinor
 attr windowMinWidthMajor
 attr windowMinWidthMinor
 attr windowNoTitle
+attr zoomEnabled
 bool abc_action_bar_embed_tabs
 bool abc_allow_stacked_button_bar
 bool abc_config_actionMenuItemAllCaps
@@ -1003,6 +1023,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable border_root
 drawable calender
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
@@ -1082,6 +1103,8 @@ id btn_register
 id buttonPanel
 id cancel_action
 id center
+id centerCrop
+id centerInside
 id center_horizontal
 id center_vertical
 id chains
@@ -1169,6 +1192,8 @@ id node_header
 id node_items
 id node_value
 id none
+id none_horizontal
+id none_vertical
 id normal
 id notification_background
 id notification_main_column
@@ -1184,6 +1209,7 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
+id realZoom
 id right
 id right_icon
 id right_side
@@ -1274,6 +1300,7 @@ id visible
 id withText
 id wrap
 id wrap_content
+id zoom
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration
@@ -1985,6 +2012,7 @@ styleable FontFamilyFont android_font android_fontWeight android_fontStyle andro
 styleable ForegroundLinearLayout android_foreground android_foregroundGravity foregroundInsidePadding
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
+styleable GraphView lineColor lineThickness useMaxSize
 styleable LinearConstraintLayout android_orientation
 styleable LinearLayoutCompat android_gravity android_orientation android_baselineAligned android_baselineAlignedChildIndex android_weightSum divider dividerPadding measureWithLargestChild showDividers
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight
@@ -2018,4 +2046,5 @@ styleable Toolbar android_gravity android_minHeight buttonGravity collapseConten
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
+styleable ZoomEngine alignment allowFlingInOverscroll animationDuration flingEnabled hasClickableChildren horizontalPanEnabled maxZoom maxZoomType minZoom minZoomType overPinchable overScrollHorizontal overScrollVertical transformation transformationGravity verticalPanEnabled zoomEnabled
 xml network_security_config
