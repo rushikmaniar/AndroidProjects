@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SqliteAppBookStore</string>
+    <string name="show_record">Show Record</string>
+</resources>
