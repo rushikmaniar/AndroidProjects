@@ -1,28 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/male"
-            android:contentDescription="gender Icon"
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_green_light"
+            android:onClick="onClick"
             />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
 
-    </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="66dp"
+                android:layout_height="64dp"
+                android:contentDescription="@string/gender_icon"
+                android:src="@drawable/male"
+                />
+
+            <TextView
+                android:id="@+id/member_name"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="43dp"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="25dp"
+                android:focusable="true"
+                android:textColor="@android:color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                tools:text="Sample" >
+            </TextView>
+        </RelativeLayout>
+
+
+    </FrameLayout>
+
 </android.support.constraint.ConstraintLayout>

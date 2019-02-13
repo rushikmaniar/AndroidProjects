@@ -2,8 +2,10 @@ package com.example.admin2018.graphview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import de.blox.graphview.BaseGraphAdapter;
@@ -37,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         final Node node11 = new Node(getNodeText());
         final Node node12 = new Node(getNodeText());
 
+        final Node node13 = new Node(getNodeText());
+        final Node node14 = new Node(getNodeText());
+        final Node node15 = new Node(getNodeText());
+        final Node node16 = new Node(getNodeText());
+
         graph.addEdge(node1, node2);
         graph.addEdge(node1, node3);
         graph.addEdge(node1, node4);
@@ -48,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
         graph.addEdge(node4, node10);
         graph.addEdge(node4, node11);
         graph.addEdge(node11, node12);
+        graph.addEdge(node12, node13);
+        graph.addEdge(node12, node14);
+        graph.addEdge(node14, node15);
+        graph.addEdge(node15, node16);
+
 
         // you can set the graph via the constructor or use the adapter.setGraph(Graph) method
         final BaseGraphAdapter<ViewHolder> adapter = new BaseGraphAdapter<ViewHolder>(this, R.layout.node, graph) {
@@ -62,7 +74,9 @@ public class MainActivity extends AppCompatActivity {
                 viewHolder.mTextView.setText(data.toString());
             }
         };
-        graphView.setAdapter(adapter);
+
+
+
 
         // set the algorithm here
         final BuchheimWalkerConfiguration configuration = new BuchheimWalkerConfiguration.Builder()
@@ -72,6 +86,12 @@ public class MainActivity extends AppCompatActivity {
                 .setOrientation(BuchheimWalkerConfiguration.ORIENTATION_LEFT_RIGHT)
                 .build();
         adapter.setAlgorithm(new BuchheimWalkerAlgorithm(configuration));
+        graphView.setAdapter(adapter);
+
+        //graph.getNode(1);
+
+
+
     }
 
     private String getNodeText() {
@@ -80,9 +100,12 @@ public class MainActivity extends AppCompatActivity {
 
     private class ViewHolder {
         TextView mTextView;
-
         ViewHolder(View view) {
-            mTextView = view.findViewById(R.id.textView);
+            mTextView = view.findViewById(R.id.member_name);
         }
+    }
+
+    public void onClick(View view){
+        Toast.makeText(MainActivity.this,"Called",Toast.LENGTH_LONG).show();
     }
 }

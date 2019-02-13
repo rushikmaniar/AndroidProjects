@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GraphView</string>
+    <string name="gender_icon">gender Icon</string>
 </resources>
