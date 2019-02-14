@@ -3,6 +3,8 @@ package VanshavaliServices;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +21,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class MainServices {
-    public static String host = "http://192.168.1.100/vanshavali/mobile/";
+    public static String host = "http://192.168.1.79:90/vanshavali/mobile/";
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
     public Map<String, String> params = new HashMap<String, String>();
     public String url = "";
@@ -27,7 +29,7 @@ public class MainServices {
     OkHttpClient client = new OkHttpClient();
 
 
-    String post(String request_url, Map<String, String> map) throws IOException {
+    public String post(String request_url, Map<String, String> map) throws IOException {
         this.url = host + request_url;
         FormBody.Builder formBuilder = new FormBody.Builder();
         if (!map.isEmpty()) {
@@ -86,7 +88,7 @@ public class MainServices {
                 }
             }
         }.start();*/
-       /* try {
+        try {
             URL myUrl = new URL(url);
             URLConnection connection = myUrl.openConnection();
             connection.setConnectTimeout(timeout);
@@ -96,8 +98,8 @@ public class MainServices {
             // Handle your exception
             e.printStackTrace();
             return false;
-        }*/
-        try {
+        }
+        /*try {
             Boolean temp = new ConnectToServer().execute(url, timeout.toString()).get();
             Log.d("Error",temp.toString());
             return temp;
@@ -105,24 +107,28 @@ public class MainServices {
             //e.printStackTrace();
             Log.d("Error",e.toString());
             return false;
-        }
+        }*/
 
         //Log.d("message",mythread.getName());
     }
 
     public boolean checkUserExists(String Username) {
+        Boolean is_user_exists = false;
         MainServices obj = new MainServices();
         obj.params.put("table", "user_master");
         obj.params.put("field", "user_email");
         obj.params.put("user_email", Username);
         try {
             String response = obj.post("Login/checkexists/user_id", obj.params);
+            JSONObject jsonobj = new JSONObject(response);
+            jsonobj = jsonobj.getJSONObject("vanshavali_response");
+            is_user_exists = jsonobj.getBoolean("message");
             Log.d("response", response);
-        } catch (IOException e) {
+        } catch (Exception e) {
             Log.d("response", e.getMessage());
         }
 
-        return false;
+        return is_user_exists;
     }
 }
 

@@ -1,12 +1,13 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-41:12
+ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-40:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\a7b03a799db38aef97d5dfe33fe52432\AndroidManifest.xml:17:1-24:12
 MERGED from [com.github.bmelnychuk:atv:1.2.9] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\atv-1.2.9.aar\48d503bd528529377737ff2d507c4ef8\AndroidManifest.xml:2:1-14:12
 MERGED from [de.blox:graphview:0.5.0] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\graphview-0.5.0.aar\77ddbabb178d68ee5f266a2d184b4c34\AndroidManifest.xml:2:1-17:12
+MERGED from [com.github.GrenderG:Toasty:1.4.0] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\Toasty-1.4.0.aar\e67b25a9c1c8f4869bea764bfa81aa66\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\2dce65f0f7f68f3dae58ed33aa77efd6\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\fd8c52dd12945148f5b31d1735bf46a4\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\support-v4-28.0.0.aar\8a60fb49753821a8db7949b8a1e2988c\AndroidManifest.xml:17:1-22:12
@@ -40,20 +41,20 @@ MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Admin2018\.gradle\c
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\24e7b397ff005d24a3757fb5a70b7443\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\fc244e0d98bf91e2f3ed8c94ad59bcd2\AndroidManifest.xml:17:1-22:12
 MERGED from [com.otaliastudios:zoomlayout:1.5.0] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\zoomlayout-1.5.0.aar\0ebcad1cc8d5863db18f484aeef4c059\AndroidManifest.xml:2:1-11:12
-INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-40:12
 	package
 		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:3:5-44
 		INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml
 		INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml
-		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-41:12
+		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-40:12
 		INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml
-		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-41:12
+		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-40:12
 		INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:11-69
@@ -66,7 +67,7 @@ ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\Androi
 	android:name
 		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:6:22-76
 application
-ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:8:5-39:19
+ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:8:5-38:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\a7b03a799db38aef97d5dfe33fe52432\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\a7b03a799db38aef97d5dfe33fe52432\AndroidManifest.xml:22:5-20
 MERGED from [com.github.bmelnychuk:atv:1.2.9] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\atv-1.2.9.aar\48d503bd528529377737ff2d507c4ef8\AndroidManifest.xml:12:5-20
@@ -102,41 +103,37 @@ ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\Androi
 	android:name
 		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:17:13-42
 activity#com.example.rushik.vanshavali.RegisterActivity
-ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:21:9-23:81
+ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:21:9-29:20
 	android:theme
 		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:23:13-69
 	android:name
 		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:22:13-45
-activity#com.example.rushik.vanshavali.FamilyList
-ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:24:9-27:52
-	android:label
-		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:27:13-40
-	android:icon
-		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:26:13-60
-	android:name
-		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:25:13-39
-activity#com.example.rushik.vanshavali.FamilyTab
-ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:28:9-31:59
-	android:label
-		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:30:13-62
-	android:theme
-		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:31:13-56
-	android:name
-		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:29:13-38
-activity#com.example.rushik.vanshavali.FamilyTreeView
-ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:32:9-38:20
-	android:name
-		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:32:19-49
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:33:13-37:29
+ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:24:13-28:29
 action#android.intent.action.MAIN
-ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:34:17-69
+ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:25:17-69
 	android:name
-		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:34:25-66
+		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:25:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:36:17-77
+ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:27:17-77
 	android:name
-		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:36:27-74
+		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:27:27-74
+activity#com.example.rushik.vanshavali.FamilyList
+ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:30:9-33:52
+	android:label
+		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:33:13-40
+	android:icon
+		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:32:13-60
+	android:name
+		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:31:13-39
+activity#com.example.rushik.vanshavali.FamilyTab
+ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:34:9-37:59
+	android:label
+		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:36:13-62
+	android:theme
+		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:37:13-56
+	android:name
+		ADDED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:35:13-38
 uses-sdk
 INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\Rushik\sem6\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml
@@ -147,6 +144,8 @@ MERGED from [com.github.bmelnychuk:atv:1.2.9] C:\Users\Admin2018\.gradle\caches\
 MERGED from [com.github.bmelnychuk:atv:1.2.9] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\atv-1.2.9.aar\48d503bd528529377737ff2d507c4ef8\AndroidManifest.xml:8:5-10:41
 MERGED from [de.blox:graphview:0.5.0] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\graphview-0.5.0.aar\77ddbabb178d68ee5f266a2d184b4c34\AndroidManifest.xml:7:5-9:41
 MERGED from [de.blox:graphview:0.5.0] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\graphview-0.5.0.aar\77ddbabb178d68ee5f266a2d184b4c34\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.GrenderG:Toasty:1.4.0] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\Toasty-1.4.0.aar\e67b25a9c1c8f4869bea764bfa81aa66\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.GrenderG:Toasty:1.4.0] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\Toasty-1.4.0.aar\e67b25a9c1c8f4869bea764bfa81aa66\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\2dce65f0f7f68f3dae58ed33aa77efd6\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\2dce65f0f7f68f3dae58ed33aa77efd6\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Admin2018\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\fd8c52dd12945148f5b31d1735bf46a4\AndroidManifest.xml:5:5-7:41

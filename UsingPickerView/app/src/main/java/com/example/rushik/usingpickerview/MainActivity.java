@@ -57,10 +57,12 @@ public class MainActivity extends AppCompatActivity {
                 Integer temp = year;
                 Integer temp1 = monthOfYear;
                 Integer temp2 = dayOfMonth;
-
-                selectDate.setText(temp2.toString() + "/" + temp1.toString() + "/" + temp.toString());
+                String output = temp2.toString() + "/" + temp1.toString() + "/" + temp.toString();
+                selectDate.setText(output);
                 selectDate.setVisibility(View.VISIBLE);
                 datePicker1.setVisibility(View.GONE);
+
+                Toast.makeText(MainActivity.this,"Date : "+output,Toast.LENGTH_LONG).show();
             }
         });
 

@@ -10,15 +10,21 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.JsonObject;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Email;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.List;
 
 import VanshavaliServices.MainServices;
+import es.dmoral.toasty.Toasty;
 
 public class RegisterActivity extends AppCompatActivity implements Validator.ValidationListener {
 
@@ -31,16 +37,16 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     @NotEmpty
     @Password
     private EditText editText_pass;
-    public volatile static Boolean b;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        //StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 
-        //StrictMode.setThreadPolicy(policy);
+        StrictMode.setThreadPolicy(policy);
 
         //edit text
         editText_username = (EditText) findViewById(R.id.editText_username);
@@ -66,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     public void btn_registerOnClick(View view) {
         validator.validate();
         //check if user exists
-        Thread one = new Thread() {
+        /*Thread one = new Thread() {
             public void run() {
 
                     if (MainServices.isConnectedToVanshavaliServer()) {
@@ -84,17 +90,42 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
             one.join();
         }catch (Exception e){
             Log.e("Register Actitvity", e.getMessage());
-        }
-
-        Toast.makeText(RegisterActivity.this,b.toString(),Toast.LENGTH_LONG).show();
-
+        }*/
 
     }
 
 
     @Override
     public void onValidationSucceeded() {
-        Toast.makeText(this, "Yay! we got it right!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Yay! we got it right!", Toast.LENGTH_SHORT).show();
+        if (MainServices.isConnectedToVanshavaliServer()) {
+            EditText username = (EditText) findViewById(R.id.editText_username);
+            EditText password = (EditText) findViewById(R.id.editText_pass);
+            if (checkUserExists(username.getText().toString())) {
+                Log.d("Message : ", "User Not Exits");
+                //go for Registeration
+                //Toasty.success(RegisterActivity.this,"User Not Exists").show();
+                MainServices obj = new MainServices();
+                obj.params.put("user_email", username.getText().toString());
+                obj.params.put("user_pass", password.getText().toString());
+                try {
+                    String response = obj.post("login/registerUser", obj.params);
+                } catch (IOException e) {
+                    Log.e("Io Exception ", e.getMessage());
+                }
+
+
+            } else {
+                //show  Error Message User Already Exists
+                Log.d("Message : ", "User  Exits");
+                Toasty.error(RegisterActivity.this, "User Already Exits", Toasty.LENGTH_LONG).show();
+            }
+            Log.d("Register Activity :", "Connection Success");
+        } else {
+
+            Log.e("Register Actitvity", "Connection Error");
+        }
+
 
     }
 
@@ -114,14 +145,11 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     }
 
     public boolean checkUserExists(String Username) {
-        if (MainServices.isConnectedToVanshavaliServer()) {
-            MainServices obj = new MainServices();
-            //check if user Already Exits
-            if (obj.checkUserExists(Username)) {
 
-            } else {
-
-            }
+        MainServices obj = new MainServices();
+        //check if user Already Exits
+        if (obj.checkUserExists(Username)) {
+            return true;
         } else {
 
         }
