@@ -15,9 +15,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -30,11 +28,12 @@
         <activity
             android:name=".FamilyList"
             android:icon="@drawable/ic_launcher_foreground"
-            android:label="My Families"></activity>
+            android:label="My Families" />
         <activity
             android:name=".FamilyTab"
             android:label="@string/title_activity_family_tab"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".VerifyUser"></activity>
     </application>
 
 </manifest>

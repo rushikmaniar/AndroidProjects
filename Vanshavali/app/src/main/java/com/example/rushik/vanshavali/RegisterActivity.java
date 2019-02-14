@@ -1,7 +1,10 @@
 package com.example.rushik.vanshavali;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -98,33 +101,56 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     @Override
     public void onValidationSucceeded() {
         //Toast.makeText(this, "Yay! we got it right!", Toast.LENGTH_SHORT).show();
-        if (MainServices.isConnectedToVanshavaliServer()) {
-            EditText username = (EditText) findViewById(R.id.editText_username);
-            EditText password = (EditText) findViewById(R.id.editText_pass);
-            if (checkUserExists(username.getText().toString())) {
-                Log.d("Message : ", "User Not Exits");
-                //go for Registeration
-                //Toasty.success(RegisterActivity.this,"User Not Exists").show();
-                MainServices obj = new MainServices();
-                obj.params.put("user_email", username.getText().toString());
-                obj.params.put("user_pass", password.getText().toString());
-                try {
-                    String response = obj.post("login/registerUser", obj.params);
-                } catch (IOException e) {
-                    Log.e("Io Exception ", e.getMessage());
+
+        RegisterActivity.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (MainServices.isConnectedToVanshavaliServer()) {
+                    EditText username = (EditText) findViewById(R.id.editText_username);
+                    EditText password = (EditText) findViewById(R.id.editText_pass);
+                    if (checkUserExists(username.getText().toString())) {
+                        //Log.d("Message : ", "User Not Exits");
+                        //go for Registeration
+                        //Toasty.success(RegisterActivity.this,"User Not Exists").show();
+//                      Toast.makeText(RegisterActivity.this,"User Not Exits ",Toast.LENGTH_SHORT).show();
+                        MainServices obj = new MainServices();
+                        obj.params.put("user_email", username.getText().toString());
+                        obj.params.put("user_pass", password.getText().toString());
+                        try {
+                            String response = obj.post("login/registerUser", obj.params);
+
+                            JSONObject jsonobj = new JSONObject(response);
+                            jsonobj = jsonobj.getJSONObject("vanshavali_response");
+                            if (jsonobj.getInt("code") == 200) {
+                                //user created Successfully ask to add verification to enter
+                                Toasty.success(RegisterActivity.this, "User Created", Toasty.LENGTH_LONG).show();
+                            } else {
+                                Toasty.error(RegisterActivity.this, jsonobj.getString("message"), Toasty.LENGTH_LONG).show();
+                            }
+                        } catch (IOException e) {
+                            Log.e("Io Exception ", e.getMessage());
+                            Toasty.error(RegisterActivity.this, e.getMessage(), Toasty.LENGTH_LONG).show();
+                        } catch (JSONException e) {
+                            Log.e("Io Exception ", e.getMessage());
+                            Toasty.error(RegisterActivity.this, e.getMessage(), Toasty.LENGTH_LONG).show();
+                        }
+
+
+                    } else {
+                        //show  Error Message User Already Exists
+                        Log.d("Message : ", "User  Exits");
+                        Toasty.error(RegisterActivity.this, "User Already Exits", Toasty.LENGTH_LONG).show();
+                        //Toast.makeText(RegisterActivity.this,"User Exits ",Toast.LENGTH_SHORT).show();
+                    }
+                    Log.d("Register Activity :", "Connection Success");
+                } else {
+
+                    Log.e("Register Actitvity", "Connection Error");
                 }
 
-
-            } else {
-                //show  Error Message User Already Exists
-                Log.d("Message : ", "User  Exits");
-                Toasty.error(RegisterActivity.this, "User Already Exits", Toasty.LENGTH_LONG).show();
             }
-            Log.d("Register Activity :", "Connection Success");
-        } else {
+        });
 
-            Log.e("Register Actitvity", "Connection Error");
-        }
 
 
     }

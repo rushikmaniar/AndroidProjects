@@ -1364,6 +1364,7 @@ layout activity_family_list
 layout activity_family_tab
 layout activity_login
 layout activity_register
+layout activity_verify_user
 layout child_item
 layout customtab
 layout design_bottom_navigation_item
