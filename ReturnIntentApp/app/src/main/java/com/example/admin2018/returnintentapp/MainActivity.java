@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import android.net.Uri;
 import android.widget.Toast;
 
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
     public Intent data1;
     int request_Code = 1;
@@ -83,8 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     @Override
                     public void onFinish() {
-                        Toast.makeText(this,data1.getStringExtra("password"),
-                                Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this,data1.getStringExtra("password"),Toast.LENGTH_SHORT).show();
                     }
                 }.start();
 

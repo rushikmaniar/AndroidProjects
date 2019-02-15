@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import es.dmoral.toasty.Toasty;
+
 
 public class LoginActivity extends AppCompatActivity  implements Validator.ValidationListener {
 
@@ -40,38 +42,18 @@ public class LoginActivity extends AppCompatActivity  implements Validator.Valid
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //edit text
         editText_username = (EditText)findViewById(R.id.editText_username);
         editText_pass = (EditText)findViewById(R.id.editText_pass);
 
-
         //check if shared preference Key exists
         SharedPreferences pref = getApplicationContext().getSharedPreferences("vanshavali-pref",0);
-        if(pref.contains("vanshavali-user")){
-
-        }else{
-
+        if(pref.contains("vanshavali_mobile_user_email")){
+            Toasty.success(LoginActivity.this,pref.getString("vanshavali_mobile_user_email","default")).show();
         }
-
-
-
-        Map<String, String> map = new HashMap<String, String>();
-        map.put("name", "demo");
-        map.put("fname", "fdemo");
-
 
         validator = new Validator(this);
         validator.setValidationListener(this);
 
-
-        if(pref.contains("vanshavali-mobile-user")){
-            //key exists
-            //get User Data check user exits in database
-
-            myToast(LoginActivity.this,map.get("name"));
-        }else{
-            myToast(LoginActivity.this,"Not Logged In");
-        }
 
     }
     public void gotoSignUp(View v){
@@ -90,13 +72,21 @@ public class LoginActivity extends AppCompatActivity  implements Validator.Valid
     public void loginBtnSubmit(View view){
         //check For validation
         validator.validate();
-
     }
 
 
     @Override
     public void onValidationSucceeded() {
-        Toast.makeText(this, "Yay! we got it right!", Toast.LENGTH_SHORT).show();
+        //set shared prefrence
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("vanshavali-pref",0);
+
+        editText_username = (EditText)findViewById(R.id.editText_username);
+        editText_pass = (EditText)findViewById(R.id.editText_pass);
+
+        SharedPreferences.Editor pref_edit = pref.edit();
+        pref_edit.putString("vanshavali_mobile_user_email",editText_username.getText().toString());
+        pref_edit.apply();
+
     }
 
     @Override

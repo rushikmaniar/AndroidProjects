@@ -1111,6 +1111,7 @@ id blocking
 id bottom
 id btn_login
 id btn_register
+id btn_verify
 id buttonPanel
 id cancel_action
 id center
@@ -1145,6 +1146,7 @@ id direct
 id disableHome
 id editText_pass
 id editText_username
+id editText_verification_code
 id edit_query
 id end
 id end_padder
@@ -1165,6 +1167,7 @@ id fixed
 id forever
 id ghost_view
 id gone
+id goto_signin
 id gotosignin
 id group_divider
 id groups
@@ -1176,6 +1179,7 @@ id ifRoom
 id image
 id imageView
 id imageView2
+id imageView3
 id info
 id invisible
 id italic

@@ -123,7 +123,11 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
                             jsonobj = jsonobj.getJSONObject("vanshavali_response");
                             if (jsonobj.getInt("code") == 200) {
                                 //user created Successfully ask to add verification to enter
-                                Toasty.success(RegisterActivity.this, "User Created", Toasty.LENGTH_LONG).show();
+                                Toasty.success(RegisterActivity.this, "User Registered", Toasty.LENGTH_LONG).show();
+                                Intent i = new Intent(getBaseContext(),VerifyUser.class);
+                                i.putExtra("username",username.getText().toString());
+                                startActivity(i);
+
                             } else {
                                 Toasty.error(RegisterActivity.this, jsonobj.getString("message"), Toasty.LENGTH_LONG).show();
                             }
