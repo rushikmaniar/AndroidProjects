@@ -21,7 +21,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class MainServices {
-    public static String host = "http://192.168.1.106/vanshavali/mobile/";
+    public static String host = "http://192.168.1.102/vanshavali/mobile/";
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
     public Map<String, String> params = new HashMap<String, String>();
     public String url = "";
@@ -130,5 +130,25 @@ public class MainServices {
 
         return is_user_exists;
     }
+
+    public boolean isUserValid(String user_email,String token) {
+        Boolean is_user_valid = false;
+        MainServices obj = new MainServices();
+        obj.params.put("user_email", user_email);
+        obj.params.put("token", token);
+        try {
+            String response = obj.post("Login/isUserValid", obj.params);
+            JSONObject jsonobj = new JSONObject(response);
+            jsonobj = jsonobj.getJSONObject("vanshavali_response");
+            if(jsonobj.getInt("code" ) == 200)
+                is_user_valid = true;
+            Log.d("response", response);
+        } catch (Exception e) {
+            Log.d("response", e.getMessage());
+        }
+
+        return is_user_valid;
+    }
+
 }
 

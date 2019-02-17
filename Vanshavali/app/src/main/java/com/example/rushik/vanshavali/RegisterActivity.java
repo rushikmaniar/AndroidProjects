@@ -1,5 +1,6 @@
 package com.example.rushik.vanshavali;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -102,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     public void onValidationSucceeded() {
         //Toast.makeText(this, "Yay! we got it right!", Toast.LENGTH_SHORT).show();
 
-        RegisterActivity.this.runOnUiThread(new Runnable() {
+        new Thread(){
             @Override
             public void run() {
                 if (MainServices.isConnectedToVanshavaliServer()) {
@@ -123,37 +124,36 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
                             jsonobj = jsonobj.getJSONObject("vanshavali_response");
                             if (jsonobj.getInt("code") == 200) {
                                 //user created Successfully ask to add verification to enter
-                                Toasty.success(RegisterActivity.this, "User Registered", Toasty.LENGTH_LONG).show();
+                                showToasty("success",RegisterActivity.this, "User Registered", Toasty.LENGTH_LONG);
                                 Intent i = new Intent(getBaseContext(),VerifyUser.class);
                                 i.putExtra("username",username.getText().toString());
                                 startActivity(i);
 
                             } else {
-                                Toasty.error(RegisterActivity.this, jsonobj.getString("message"), Toasty.LENGTH_LONG).show();
+                                showToasty("error",RegisterActivity.this, jsonobj.getString("message"), Toasty.LENGTH_LONG);
                             }
                         } catch (IOException e) {
                             Log.e("Io Exception ", e.getMessage());
-                            Toasty.error(RegisterActivity.this, e.getMessage(), Toasty.LENGTH_LONG).show();
+                            showToasty("success",RegisterActivity.this, e.getMessage(), Toasty.LENGTH_LONG);
                         } catch (JSONException e) {
                             Log.e("Io Exception ", e.getMessage());
-                            Toasty.error(RegisterActivity.this, e.getMessage(), Toasty.LENGTH_LONG).show();
+                            showToasty("error",RegisterActivity.this, e.getMessage(), Toasty.LENGTH_LONG);
                         }
 
 
                     } else {
                         //show  Error Message User Already Exists
                         Log.d("Message : ", "User  Exits");
-                        Toasty.error(RegisterActivity.this, "User Already Exits", Toasty.LENGTH_LONG).show();
-                        //Toast.makeText(RegisterActivity.this,"User Exits ",Toast.LENGTH_SHORT).show();
+                        showToasty("error",RegisterActivity.this, "User Already Exits", Toasty.LENGTH_LONG);
                     }
                     Log.d("Register Activity :", "Connection Success");
                 } else {
-
-                    Log.e("Register Actitvity", "Connection Error");
+                    Log.e("Register Activity :", "Connection Error");
+                    showToasty("error",RegisterActivity.this, "Connection Error", Toasty.LENGTH_LONG);
                 }
 
             }
-        });
+        }.start();
 
 
 
@@ -185,6 +185,11 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         }
         return false;
     }
-
+    public void showToasty(String type, Context c, final String toast, int length) {
+        if(type.equals("error"))
+            runOnUiThread(() -> Toasty.error(c, toast, length).show());
+        if(type.equals("success"))
+            runOnUiThread(() -> Toasty.success(c, toast, length).show());
+    }
 
 }
