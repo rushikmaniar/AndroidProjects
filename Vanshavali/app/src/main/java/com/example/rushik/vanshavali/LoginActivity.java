@@ -124,7 +124,7 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
     @Override
     public void onValidationSucceeded() {
         //set shared prefrence
-        new Thread() {
+        Thread connthread = new Thread() {
             @Override
             public void run() {
 
@@ -140,7 +140,13 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
                     showToasty("error",LoginActivity.this,"Server Connection Error",Toasty.LENGTH_LONG);
                 }
             }
-        }.start();
+        };
+        connthread.start();
+        try{
+            connthread.join();
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
     }
 
     @Override

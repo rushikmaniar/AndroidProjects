@@ -44,8 +44,10 @@
         <activity
             android:name="com.example.rushik.vanshavali.FamilyTab"
             android:label="@string/title_activity_family_tab"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.example.rushik.vanshavali.VerifyUser" />
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity android:name="com.example.rushik.vanshavali.VerifyUser" >
+        </activity>
     </application>
 
 </manifest>

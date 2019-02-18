@@ -58,6 +58,33 @@ public class FamilyList extends AppCompatActivity {
         menu.setDisplayUseLogoEnabled(true);
 
 
+    }
+
+    public void showToasty(String type, Context c, final String toast, int length) {
+        if (type.equals("error"))
+            runOnUiThread(() -> Toasty.error(c, toast, length).show());
+        if (type.equals("success"))
+            runOnUiThread(() -> Toasty.success(c, toast, length).show());
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        getFamilyTreeList();
+        Log.d("Message","Onresume");
+    }
+
+
+    /*
+    * Function To get Faimily TreeList
+    *
+    * */
+    public void getFamilyTreeList(){
+
+
+        ListView family_list = (ListView) findViewById(R.id.family_list);
+        family_list.setAdapter(null);
+        family_data.clear();
         //check if shared preference Key exists
         SharedPreferences pref = getApplicationContext().getSharedPreferences("vanshavali-pref", 0);
         SharedPreferences.Editor edit = pref.edit();
@@ -72,7 +99,7 @@ public class FamilyList extends AppCompatActivity {
             if (!(user_name.equals("0") || user_token.equals("0"))) {
                 //check if user is valid . check user exists and token
 
-                new Thread() {
+                Thread familyList = new Thread() {
                     @Override
                     public void run() {
                         if (MainServices.isConnectedToVanshavaliServer()) {
@@ -96,6 +123,7 @@ public class FamilyList extends AppCompatActivity {
 
                                                 HashMap<String, Object> row = new HashMap<String, Object>();
                                                 row.put("Icon", R.drawable.family_tree);
+                                                row.put("FamilyId",temp.getString("family_tree_id"));
                                                 row.put("FamilyName",temp.getString("family_tree_name"));
                                                 row.put("Members_Count", temp.getString("member_count") + " Memebers");
                                                 family_data.add(row);
@@ -135,7 +163,15 @@ public class FamilyList extends AppCompatActivity {
                             startActivity(i);
                         }
                     }
-                }.start();
+                };
+
+                familyList.start();
+                try {
+                    familyList.join();
+                }catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+
 
             }
         } else {
@@ -148,8 +184,7 @@ public class FamilyList extends AppCompatActivity {
         }
 
 
-        ListView family_list = (ListView) findViewById(R.id.family_list);
-        family_list.setAdapter(null);
+
         SimpleAdapter adapter = new SimpleAdapter(this,
                 family_data,
                 R.layout.family_list_row,
@@ -160,23 +195,11 @@ public class FamilyList extends AppCompatActivity {
         family_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                showToasty("success",FamilyList.this,adapter.getItem(position).toString(),Toasty.LENGTH_LONG);
+
             }
         });
 
-    }
 
-    public void showToasty(String type, Context c, final String toast, int length) {
-        if (type.equals("error"))
-            runOnUiThread(() -> Toasty.error(c, toast, length).show());
-        if (type.equals("success"))
-            runOnUiThread(() -> Toasty.success(c, toast, length).show());
-    }
-
-    @Override
-    public void onResume(){
-        super.onResume();
-        Log.d("Message","Onresume");
     }
 
 

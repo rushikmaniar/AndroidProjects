@@ -35,8 +35,12 @@
         <activity
             android:name=".FamilyTab"
             android:label="@string/title_activity_family_tab"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".VerifyUser"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+
+
+        </activity>
+        <activity android:name=".VerifyUser">
+        </activity>
     </application>
 
 </manifest>
