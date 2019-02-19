@@ -13,7 +13,7 @@ public class DBAdapter {
     static final String KEY_NAME = "name";
     static final String KEY_EMAIL = "email";
     static final String TAG = "DBAdapter";
-    static final String DATABASE_NAME = "MyDB";
+    static final String DATABASE_NAME = "MyDB.db";
     static final String DATABASE_TABLE = "contacts";
     static final int DATABASE_VERSION = 1;
     static final String DATABASE_CREATE =
@@ -30,7 +30,7 @@ public class DBAdapter {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
         DatabaseHelper(Context context) {
-            super(context, DATABASE_NAME, null, DATABASE_VERSION);
+                super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
 
         @Override

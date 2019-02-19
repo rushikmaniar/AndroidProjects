@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
        myadapter = new DBAdapter(getApplicationContext());
 
        myadapter.open();
-       myadapter.insertContact("rushik","rus@gmail.com");
+       //myadapter.insertContact("rushik","rus@gmail.com");
 
 
     }
