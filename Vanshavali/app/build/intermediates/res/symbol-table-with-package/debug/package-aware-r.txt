@@ -1042,6 +1042,7 @@ drawable details_ico
 drawable family_icon
 drawable family_member
 drawable family_tree
+drawable female
 drawable forest
 drawable ic_check_white_24dp
 drawable ic_clear_white_24dp
@@ -1053,6 +1054,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable icons8_hierarchy
+drawable male
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1076,6 +1078,7 @@ drawable tree_view
 id ALT
 id CTRL
 id FUNCTION
+id Logout
 id META
 id SHIFT
 id SYM
@@ -1193,6 +1196,9 @@ id list_item
 id main_content
 id masked
 id media_actions
+id member_list
+id member_list_row
+id member_name
 id message
 id middle
 id mini
@@ -1384,6 +1390,7 @@ layout design_text_input_password_icon
 layout family_list_row
 layout fragment_family_tab
 layout fragment_member_list
+layout member_list_row
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
@@ -1406,11 +1413,13 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 layout toast_layout
+menu main_main
 menu menu_family_tab
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 mipmap tree_logo
+string Logout
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.TabHost;
 import android.widget.TextView;
 
 import es.dmoral.toasty.Toasty;
@@ -57,7 +58,12 @@ public class FamilyTab extends AppCompatActivity implements MemberListFragment.O
         mViewPager.setAdapter(mSectionsPagerAdapter);*/
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-
+        TabLayout.Tab tab = tabLayout.getTabAt(1);
+        try {
+            tab.select();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         //mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
