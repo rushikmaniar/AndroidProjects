@@ -61,38 +61,51 @@ public class FamilyTab extends AppCompatActivity implements MemberListFragment.O
         TabLayout.Tab tab = tabLayout.getTabAt(1);
         try {
             tab.select();
-        }catch (Exception e){
+           /* FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            MemberListFragment memberListFragment = new MemberListFragment();
+            fragmentTransaction.add(R.id.container, memberListFragment);
+            fragmentTransaction.commit();*/
+            Fragment frg = getSupportFragmentManager().findFragmentById(R.id.member_list_fragment);
+            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            MemberListFragment memberListFragment = new MemberListFragment();
+            ft.detach(frg);
+            ft.attach(frg);
+            ft.commit();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         //mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                switch (tab.getText().toString()){
+                switch (tab.getText().toString()) {
                     //Family Tree List
                     case "FamilyTree":
                         //goto family List Activity
-                        Intent i = new Intent(FamilyTab.this,FamilyList.class);
+                        Intent i = new Intent(FamilyTab.this, FamilyList.class);
                         startActivity(i);
                         break;
 
                     //Show List Of Family Members
                     case "FamilyMember":
-                        FragmentManager fragmentManager = getSupportFragmentManager();
-                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        Fragment frg = getSupportFragmentManager().findFragmentById(R.id.member_list_fragment);
+                        final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                         MemberListFragment memberListFragment = new MemberListFragment();
-                        fragmentTransaction.add(R.id.container,memberListFragment);
-                        fragmentTransaction.commit();
-                        Toasty.success(FamilyTab.this,"FamilyMember").show();
+                        ft.detach(frg);
+                        ft.attach(frg);
+                        ft.commit();
+
+                        Toasty.success(FamilyTab.this, "FamilyMember").show();
                         break;
                     case "Treeview":
-                        Toasty.success(FamilyTab.this,"Treeview").show();
+                        Toasty.success(FamilyTab.this, "Treeview").show();
                         break;
                     case "Calender":
-                        Toasty.success(FamilyTab.this,"Calender").show();
+                        Toasty.success(FamilyTab.this, "Calender").show();
                         break;
                 }
-               // Toasty.success(FamilyTab.this,tab.getText()).show();
+                // Toasty.success(FamilyTab.this,tab.getText()).show();
             }
 
             @Override
@@ -110,8 +123,8 @@ public class FamilyTab extends AppCompatActivity implements MemberListFragment.O
     }
 
     @Override
-    public void onFragmentInteraction(){
-        Log.d("Message:","called");
+    public void onFragmentInteraction() {
+        Log.d("Message:", "called");
     }
 
     @Override

@@ -1197,6 +1197,7 @@ id main_content
 id masked
 id media_actions
 id member_list
+id member_list_fragment
 id member_list_row
 id member_name
 id message

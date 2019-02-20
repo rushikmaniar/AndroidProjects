@@ -35,18 +35,11 @@ import es.dmoral.toasty.Toasty;
  * create an instance of this fragment.
  */
 public class MemberListFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    public SimpleAdapter adapter;
+    public ListView member_list;
     private OnFragmentInteractionListener mListener;
     final static ArrayList<HashMap<String, ?>> member_data = new ArrayList<HashMap<String, ?>>();
-
+    View rootview;
     public MemberListFragment() {
         // Required empty public constructor
     }
@@ -63,23 +56,21 @@ public class MemberListFragment extends Fragment {
     public static MemberListFragment newInstance(String param1, String param2) {
         MemberListFragment fragment = new MemberListFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getMemberList();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_member_list, container, false);
+        rootview =  inflater.inflate(R.layout.fragment_member_list, container, false);
+        getMemberList();
+        return rootview;
     }
 
 
@@ -121,7 +112,7 @@ public class MemberListFragment extends Fragment {
      * Function To get  MemberList
      * */
     public void getMemberList() {
-        ListView member_list = (ListView)getView().findViewById(R.id.member_list);
+        member_list = (ListView)rootview.findViewById(R.id.member_list);
         member_list.setAdapter(null);
         member_data.clear();
         //check if shared preference Key exists
@@ -151,7 +142,7 @@ public class MemberListFragment extends Fragment {
                                 obj.params.put("token", user_token);
                                 obj.params.put("family_id", family_id);
                                 try {
-                                    String response = obj.post("Members/getMemberList", obj.params);
+                                    String response = obj.post("MembersManage/getFamilyMemberList", obj.params);
                                     Log.d("response :", response);
                                     JSONObject jsonobj = new JSONObject(response);
                                     jsonobj = jsonobj.getJSONObject("vanshavali_response");
@@ -229,11 +220,11 @@ public class MemberListFragment extends Fragment {
         }
 
 
-        SimpleAdapter adapter = new SimpleAdapter(getContext(),
+        adapter = new SimpleAdapter(getContext(),
                 member_data,
                 R.layout.member_list_row,
-                new String[]{"Icon", "MemberId","MemberName", "MemberGender"},
-                new int[]{R.id.family_members_count, R.id.member_name});
+                new String[]{"Icon","MemberName","MemberId", "MemberGender"},
+                new int[]{R.id.member_list_row,R.id.member_name});
         member_list.setAdapter(adapter);
 
         member_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {

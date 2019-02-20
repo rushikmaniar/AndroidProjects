@@ -220,7 +220,7 @@ public class FamilyList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String family_tree_id = family_data.get(position).get("FamilyId").toString();
-                edit.putString("FamilyId",family_tree_id);
+                edit.putString("vanshavali_mobile_family_id",family_tree_id);
                 edit.apply();
                 Intent i = new Intent(FamilyList.this,FamilyTab.class);
                 startActivity(i);
