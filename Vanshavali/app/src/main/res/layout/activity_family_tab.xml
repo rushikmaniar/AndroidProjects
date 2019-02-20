@@ -66,6 +66,10 @@
     </android.support.design.widget.AppBarLayout>
 
 
+
+    <!--
+        Get Member List
+    -->
     <android.support.constraint.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -80,23 +84,16 @@
         app:layout_constraintHorizontal_bias="0.195"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="1.0"
 
+        >
 
-        <fragment
-            android:id="@+id/member_list_fragment"
-            android:name="com.example.rushik.vanshavali.MemberListFragment"
-            android:layout_width="393dp"
-            android:layout_height="490dp" />
+        <ListView
+            android:id="@+id/member_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"></ListView>
+
     </android.support.constraint.ConstraintLayout>
-
-
-    <!--<android.support.v4.view.ViewPager
-        android:id="@+id/container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-    </android.support.v4.view.ViewPager>-->
 
 </android.support.constraint.ConstraintLayout>

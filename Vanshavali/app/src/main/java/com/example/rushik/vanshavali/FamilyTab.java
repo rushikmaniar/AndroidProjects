@@ -1,46 +1,38 @@
 package com.example.rushik.vanshavali;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
-import android.widget.TabHost;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import VanshavaliServices.MainServices;
 import es.dmoral.toasty.Toasty;
 
-public class FamilyTab extends AppCompatActivity implements MemberListFragment.OnFragmentInteractionListener {
+public class FamilyTab extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-    private ViewPager mViewPager;
+    public SimpleAdapter adapter;
+    public ListView member_list;
+    final static ArrayList<HashMap<String, ?>> member_data = new ArrayList<HashMap<String, ?>>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,17 +53,7 @@ public class FamilyTab extends AppCompatActivity implements MemberListFragment.O
         TabLayout.Tab tab = tabLayout.getTabAt(1);
         try {
             tab.select();
-           /* FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            MemberListFragment memberListFragment = new MemberListFragment();
-            fragmentTransaction.add(R.id.container, memberListFragment);
-            fragmentTransaction.commit();*/
-            Fragment frg = getSupportFragmentManager().findFragmentById(R.id.member_list_fragment);
-            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            MemberListFragment memberListFragment = new MemberListFragment();
-            ft.detach(frg);
-            ft.attach(frg);
-            ft.commit();
+            getMemberList();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -89,16 +71,11 @@ public class FamilyTab extends AppCompatActivity implements MemberListFragment.O
 
                     //Show List Of Family Members
                     case "FamilyMember":
-                        Fragment frg = getSupportFragmentManager().findFragmentById(R.id.member_list_fragment);
-                        final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                        MemberListFragment memberListFragment = new MemberListFragment();
-                        ft.detach(frg);
-                        ft.attach(frg);
-                        ft.commit();
-
+                        getMemberList();
                         Toasty.success(FamilyTab.this, "FamilyMember").show();
                         break;
                     case "Treeview":
+
                         Toasty.success(FamilyTab.this, "Treeview").show();
                         break;
                     case "Calender":
@@ -122,10 +99,6 @@ public class FamilyTab extends AppCompatActivity implements MemberListFragment.O
 
     }
 
-    @Override
-    public void onFragmentInteraction() {
-        Log.d("Message:", "called");
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -148,62 +121,154 @@ public class FamilyTab extends AppCompatActivity implements MemberListFragment.O
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
+    /*
+     * Function To get  MemberList
+     * */
+    public void getMemberList() {
 
-        public PlaceholderFragment() {
+        member_list = (ListView) findViewById(R.id.member_list);
+        member_list.setVisibility(View.VISIBLE);
+        member_list.setAdapter(null);
+        member_data.clear();
+        //check if shared preference Key exists
+        SharedPreferences pref = FamilyTab.this.getApplicationContext().getSharedPreferences("vanshavali-pref", 0);
+        SharedPreferences.Editor edit = pref.edit();
+        if (pref.contains("vanshavali_mobile_user_email")) {
+            //check user and token
+            String user_name = pref.getString("vanshavali_mobile_user_email", "0");
+            String user_token = pref.getString("vanshavali_mobile_user_token", "0");
+            String family_id = pref.getString("vanshavali_mobile_family_id", "0");
+            Log.d("user_email", user_name);
+            Log.d("user_token", user_token);
+
+
+            if (!(user_name.equals("0") || user_token.equals("0") || family_id.equals("0"))) {
+                //check if user is valid . check user exists and token
+
+                Thread memberList = new Thread() {
+                    @Override
+                    public void run() {
+                        if (MainServices.isConnectedToVanshavaliServer()) {
+                            MainServices obj = new MainServices();
+                            if (obj.isUserValid(user_name, user_token)) {
+                                //user Logged In valid. fetch family List Records
+
+                                obj.params.put("user_email", user_name);
+                                obj.params.put("token", user_token);
+                                obj.params.put("family_id", family_id);
+                                try {
+                                    String response = obj.post("MembersManage/getFamilyMemberList", obj.params);
+                                    Log.d("response :", response);
+                                    JSONObject jsonobj = new JSONObject(response);
+                                    jsonobj = jsonobj.getJSONObject("vanshavali_response");
+                                    if (jsonobj.getInt("code") == 200) {
+                                        JSONObject data = jsonobj.getJSONObject("data");
+                                        if (data.getInt("no_of_rows") > 0) {
+                                            JSONArray family_list = data.getJSONArray("member_list");
+                                            for (int i = 0; i < family_list.length(); i++) {
+
+                                                JSONObject temp = family_list.getJSONObject(i);
+
+                                                HashMap<String, Object> row = new HashMap<String, Object>();
+                                                if (temp.getString("member_gender").equals("1"))
+                                                    row.put("Icon", R.drawable.male);
+                                                else
+                                                    row.put("Icon", R.drawable.female);
+                                                row.put("MemberId", temp.getString("member_id"));
+                                                row.put("MemberName", temp.getString("member_full_name"));
+                                                row.put("MemberGender", temp.getString("member_gender"));
+                                                member_data.add(row);
+                                                //Log.d("Message", member_list.get(i).toString());
+                                            }
+
+                                        } else {
+                                            showToasty("error", FamilyTab.this, "No Data Found", Toasty.LENGTH_LONG);
+                                        }
+
+                                    } else {
+                                        showToasty("error", FamilyTab.this, jsonobj.getString("message"), Toasty.LENGTH_LONG);
+                                    }
+                                } catch (IOException e) {
+                                    Log.e("Io Exception ", e.getMessage());
+                                    showToasty("success", FamilyTab.this, e.getMessage(), Toasty.LENGTH_LONG);
+                                } catch (JSONException e) {
+                                    Log.e("Io Exception ", e.getMessage());
+                                    showToasty("error", FamilyTab.this, e.getMessage(), Toasty.LENGTH_LONG);
+                                }
+
+
+                            } else {
+                                //User is Invalid . Destroy Preference
+                                edit.clear();
+                                edit.apply();
+                                Intent i = new Intent(FamilyTab.this, LoginActivity.class);
+                                showToasty("error", FamilyTab.this, "User Invalid . Login Again", Toasty.LENGTH_LONG);
+                                startActivity(i);
+                            }
+                        } else {
+                            Log.d("Message", "In Else Part");
+                            edit.clear();
+                            edit.apply();
+                            Intent i = new Intent(FamilyTab.this, LoginActivity.class);
+                            showToasty("error", FamilyTab.this, "Server Connection Error", Toasty.LENGTH_LONG);
+                            startActivity(i);
+                        }
+                    }
+                };
+
+                memberList.start();
+                try {
+                    memberList.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        } else {
+            //User is Invalid . Destroy Preference
+            edit.clear();
+            edit.apply();
+            Intent i = new Intent(FamilyTab.this, LoginActivity.class);
+            showToasty("error", FamilyTab.this, "User Invalid . Login Again", Toasty.LENGTH_LONG);
+            startActivity(i);
         }
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_family_tab, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            return rootView;
-        }
+        adapter = new SimpleAdapter(this,
+                member_data,
+                R.layout.member_list_row,
+                new String[]{"Icon", "MemberName", "MemberId", "MemberGender"},
+                new int[]{R.id.member_list_row, R.id.member_name});
+        member_list.setAdapter(adapter);
+
+        member_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(FamilyTab.this, FamilyTab.class);
+                startActivity(i);
+            }
+        });
+
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
 
-        @Override
-        public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
-        }
-
-        @Override
-        public int getCount() {
-            // Show 3 total pages.
-            return 4;
-        }
+    public void Logout() {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("vanshavali-pref", 0);
+        SharedPreferences.Editor edit = pref.edit();
+        edit.clear();
+        edit.apply();
+        Intent i = new Intent(FamilyTab.this, LoginActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
     }
+
+    public void showToasty(String type, Context c, final String toast, int length) {
+        if (type.equals("error"))
+            runOnUiThread(() -> Toasty.error(c, toast, length).show());
+        if (type.equals("success"))
+            runOnUiThread(() -> Toasty.success(c, toast, length).show());
+    }
+
 }

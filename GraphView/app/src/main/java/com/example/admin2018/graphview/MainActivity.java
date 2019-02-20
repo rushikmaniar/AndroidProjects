@@ -4,6 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -76,22 +80,32 @@ public class MainActivity extends AppCompatActivity {
         };
 
 
-
-
         // set the algorithm here
         final BuchheimWalkerConfiguration configuration = new BuchheimWalkerConfiguration.Builder()
-                .setSiblingSeparation(200)
+                /*.setSiblingSeparation(200)
                 .setLevelSeparation(300)
-                .setSubtreeSeparation(300)
+                .setSubtreeSeparation(300)*/
                 .setOrientation(BuchheimWalkerConfiguration.ORIENTATION_LEFT_RIGHT)
                 .build();
         adapter.setAlgorithm(new BuchheimWalkerAlgorithm(configuration));
         graphView.setAdapter(adapter);
 
+
+        Toast.makeText(MainActivity.this, String.valueOf(graphView.getZoom()), Toast.LENGTH_LONG).show();
+
         //graph.getNode(1);
 
 
+    }
 
+    public void btnzoomIn_onClick(View v) {
+        GraphView graphView = findViewById(R.id.graph);
+        graphView.zoomIn();
+    }
+
+    public void btnzoomOut_onClick(View v) {
+        GraphView graphView = findViewById(R.id.graph);
+        graphView.zoomOut();
     }
 
     private String getNodeText() {
@@ -100,12 +114,9 @@ public class MainActivity extends AppCompatActivity {
 
     private class ViewHolder {
         TextView mTextView;
+
         ViewHolder(View view) {
             mTextView = view.findViewById(R.id.member_name);
         }
-    }
-
-    public void onClick(View view){
-        Toast.makeText(MainActivity.this,"Called",Toast.LENGTH_LONG).show();
     }
 }

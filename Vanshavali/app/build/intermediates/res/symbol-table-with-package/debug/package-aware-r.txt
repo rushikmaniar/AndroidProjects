@@ -1130,7 +1130,6 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
-id constraintLayout
 id container
 id content
 id contentPanel
@@ -1197,7 +1196,6 @@ id main_content
 id masked
 id media_actions
 id member_list
-id member_list_fragment
 id member_list_row
 id member_name
 id message
@@ -1251,7 +1249,6 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
-id section_label
 id select_dialog_listview
 id selected
 id shortcut
@@ -1389,8 +1386,6 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout family_list_row
-layout fragment_family_tab
-layout fragment_member_list
 layout member_list_row
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
