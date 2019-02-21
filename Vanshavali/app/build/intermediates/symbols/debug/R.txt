@@ -1074,6 +1074,8 @@ int drawable tooltip_frame_dark 0x7f070086
 int drawable tooltip_frame_light 0x7f070087
 int drawable tree1 0x7f070088
 int drawable tree_view 0x7f070089
+int drawable zoom_in 0x7f07008a
+int drawable zoom_out 0x7f07008b
 int id ALT 0x7f080000
 int id CTRL 0x7f080001
 int id FUNCTION 0x7f080002
