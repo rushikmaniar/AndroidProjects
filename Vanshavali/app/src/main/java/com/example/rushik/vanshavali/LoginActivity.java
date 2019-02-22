@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
                                 edit.clear();
                                 edit.apply();
                                 Intent i = new Intent(LoginActivity.this, LoginActivity.class);
-                                Toasty.error(LoginActivity.this, "User Invalid . Login Again").show();
+                                showToasty("error",LoginActivity.this,"User Invalid . Login Again",Toasty.LENGTH_LONG);
                                 startActivity(i);
                             }
                         } else {
