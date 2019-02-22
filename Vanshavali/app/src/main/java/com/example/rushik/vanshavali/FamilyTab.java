@@ -3,6 +3,7 @@ package com.example.rushik.vanshavali;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,8 +15,11 @@ import android.view.MenuItem;
 import android.view.View;
 
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,15 +28,24 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import VanshavaliServices.MainServices;
+import androidx.annotation.NonNull;
+import de.blox.graphview.BaseGraphAdapter;
+import de.blox.graphview.Graph;
+import de.blox.graphview.GraphView;
+import de.blox.graphview.Node;
+import de.blox.graphview.tree.BuchheimWalkerAlgorithm;
+import de.blox.graphview.tree.BuchheimWalkerConfiguration;
 import es.dmoral.toasty.Toasty;
 
 public class FamilyTab extends AppCompatActivity {
-
+    private int nodeCount = 1;
     public SimpleAdapter adapter;
     public ListView member_list;
     final static ArrayList<HashMap<String, ?>> member_data = new ArrayList<HashMap<String, ?>>();
+    public String family_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,11 +85,11 @@ public class FamilyTab extends AppCompatActivity {
                     //Show List Of Family Members
                     case "FamilyMember":
                         getMemberList();
-                        Toasty.success(FamilyTab.this, "FamilyMember").show();
+                        Toasty.success(FamilyTab.this, family_id).show();
                         break;
                     case "Treeview":
-
-                        Toasty.success(FamilyTab.this, "Treeview").show();
+                        getTreeView();
+                        Toasty.success(FamilyTab.this, family_id).show();
                         break;
                     case "Calender":
                         Toasty.success(FamilyTab.this, "Calender").show();
@@ -126,6 +139,11 @@ public class FamilyTab extends AppCompatActivity {
      * */
     public void getMemberList() {
 
+        //Set Tree VIew Invisible
+        FrameLayout TreeView = (FrameLayout)findViewById(R.id.TreeView);
+        TreeView.setVisibility(View.GONE);
+
+        //List View Visisble
         member_list = (ListView) findViewById(R.id.member_list);
         member_list.setVisibility(View.VISIBLE);
         member_list.setAdapter(null);
@@ -137,7 +155,7 @@ public class FamilyTab extends AppCompatActivity {
             //check user and token
             String user_name = pref.getString("vanshavali_mobile_user_email", "0");
             String user_token = pref.getString("vanshavali_mobile_user_token", "0");
-            String family_id = pref.getString("vanshavali_mobile_family_id", "0");
+            family_id = pref.getString("vanshavali_mobile_family_id", "0");
             Log.d("user_email", user_name);
             Log.d("user_token", user_token);
 
@@ -252,6 +270,100 @@ public class FamilyTab extends AppCompatActivity {
 
     }
 
+
+    public void getTreeView() {
+        ListView member_list = (ListView)findViewById(R.id.member_list);
+        member_list.setVisibility(View.GONE);
+
+        FrameLayout TreeView = (FrameLayout)findViewById(R.id.TreeView);
+        TreeView.setVisibility(View.VISIBLE);
+        GraphView graphView = findViewById(R.id.graph);
+
+        final Graph graph = new Graph();
+        final Node node1 = new Node(getNodeText());
+        final Node node2 = new Node(getNodeText());
+        final Node node3 = new Node(getNodeText());
+        final Node node4 = new Node(getNodeText());
+        final Node node5 = new Node(getNodeText());
+        final Node node6 = new Node(getNodeText());
+        final Node node8 = new Node(getNodeText());
+        final Node node7 = new Node(getNodeText());
+        final Node node9 = new Node(getNodeText());
+        final Node node10 = new Node(getNodeText());
+        final Node node11 = new Node(getNodeText());
+        final Node node12 = new Node(getNodeText());
+
+        final Node node13 = new Node(getNodeText());
+        final Node node14 = new Node(getNodeText());
+        final Node node15 = new Node(getNodeText());
+        final Node node16 = new Node(getNodeText());
+
+        graph.addEdge(node1, node2);
+        graph.addEdge(node1, node3);
+        graph.addEdge(node1, node4);
+        graph.addEdge(node2, node5);
+        graph.addEdge(node2, node6);
+        graph.addEdge(node6, node7);
+        graph.addEdge(node6, node8);
+        graph.addEdge(node4, node9);
+        graph.addEdge(node4, node10);
+        graph.addEdge(node4, node11);
+        graph.addEdge(node11, node12);
+        graph.addEdge(node12, node13);
+        graph.addEdge(node12, node14);
+        graph.addEdge(node14, node15);
+        graph.addEdge(node15, node16);
+
+
+        // you can set the graph via the constructor or use the adapter.setGraph(Graph) method
+        final BaseGraphAdapter<ViewHolder> adapter = new BaseGraphAdapter<ViewHolder>(this, R.layout.node, graph) {
+            @NonNull
+            @Override
+            public ViewHolder onCreateViewHolder(View view) {
+                return new ViewHolder(view);
+            }
+
+            @Override
+            public void onBindViewHolder(ViewHolder viewHolder, Object data, int position) {
+                viewHolder.mTextView.setText(data.toString());
+            }
+        };
+
+
+        // set the algorithm here
+        final BuchheimWalkerConfiguration configuration = new BuchheimWalkerConfiguration.Builder()
+                /*.setSiblingSeparation(200)
+                .setLevelSeparation(300)
+                .setSubtreeSeparation(300)*/
+                .setOrientation(BuchheimWalkerConfiguration.ORIENTATION_LEFT_RIGHT)
+                .build();
+        adapter.setAlgorithm(new BuchheimWalkerAlgorithm(configuration));
+        graphView.setAdapter(adapter);
+
+
+    }
+
+    public void btnzoomIn_onClick(View v) {
+        GraphView graphView = findViewById(R.id.graph);
+        graphView.zoomIn();
+    }
+
+    public void btnzoomOut_onClick(View v) {
+        GraphView graphView = findViewById(R.id.graph);
+        graphView.zoomOut();
+    }
+
+    private String getNodeText() {
+        return "Node " + nodeCount++;
+    }
+
+    private class ViewHolder {
+        TextView mTextView;
+
+        ViewHolder(View view) {
+            mTextView = view.findViewById(R.id.member_name);
+        }
+    }
 
 
     public void Logout() {
