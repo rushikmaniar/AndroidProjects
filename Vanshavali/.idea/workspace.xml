@@ -5,6 +5,9 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
@@ -33,38 +36,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FamilyTab.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FamilyTab.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyTab.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="474" column="10" lean-forward="true" selection-start-line="474" selection-start-column="10" selection-end-line="474" selection-end-column="10" />
+            <state relative-caret-position="349">
+              <caret line="283" column="68" selection-start-line="283" selection-start-column="68" selection-end-line="283" selection-end-column="68" />
               <folding>
-                <element signature="e#1453#1473#0" expanded="true" />
-                <element signature="e#5957#10368#0" expanded="true" />
-                <element signature="e#7570#7586#0" expanded="true" />
-                <element signature="e#10367#10368#0" expanded="true" />
-                <element signature="e#12760#17171#0" expanded="true" />
-                <element signature="e#14373#14389#0" expanded="true" />
-                <element signature="e#17170#17171#0" expanded="true" />
-                <element signature="e#20322#20334#0" expanded="true" />
-                <element signature="e#20468#20469#0" expanded="true" />
-                <element signature="e#20527#20528#0" expanded="true" />
-                <element signature="e#21913#21914#0" expanded="true" />
-                <element signature="e#21957#21958#0" expanded="true" />
+                <element signature="e#1508#1528#0" expanded="true" />
+                <element signature="e#5990#10511#0" expanded="true" />
+                <element signature="e#7603#7619#0" expanded="true" />
+                <element signature="e#10510#10511#0" expanded="true" />
+                <element signature="e#11913#11927#0" expanded="true" />
+                <element signature="e#13668#13680#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="node.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="node.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/node.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-            </state>
-          </provider>
           <provider editor-type-id="android-designer2">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -74,12 +71,13 @@
     <findStrings>
       <find>mTextView</find>
       <find>onBindViewHolder</find>
+      <find>member_data</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\Admin2018\.gradle\wrapper\dists\gradle-4.6-all\bcst21l2brirad8k2ben1letg\gradle-4.6" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\DELL\.gradle\wrapper\dists\gradle-4.6-all\bcst21l2brirad8k2ben1letg\gradle-4.6" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -157,6 +155,10 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="processDebugResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="transformNativeLibsWithStripDebugSymbolForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs lint on all variants." />
@@ -850,6 +852,10 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="transformNativeLibsWithStripDebugSymbolForDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="compileDebugNdk" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
@@ -1020,6 +1026,10 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="processDebugResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="transformNativeLibsWithStripDebugSymbolForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs lint on all variants." />
@@ -1703,6 +1713,10 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="transformNativeLibsWithStripDebugSymbolForDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="compileDebugNdk" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
@@ -2335,8 +2349,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/node.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/VanshavaliServices/MainServices.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyTab.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/node.xml" />
       </list>
     </option>
   </component>
@@ -2370,7 +2385,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Android App.app">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -2390,6 +2405,55 @@
         <option name="Make" enabled="false" />
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="FamilyTab" type="AndroidRunConfigurationType" factoryName="Android App" temporary="true">
+      <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="specific_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sampled (Java)" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="com.example.rushik.vanshavali.FamilyTab" />
     </configuration>
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="app" />
@@ -2469,6 +2533,15 @@
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
     </configuration>
+    <list>
+      <item itemvalue="Android App.app" />
+      <item itemvalue="Android App.FamilyTab" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Android App.FamilyTab" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -2484,7 +2557,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1040" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -2492,11 +2565,12 @@
       <window_info id="Image Layers" order="2" />
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32843137" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5441176" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50075644" side_tool="true" weight="0.5441176" />
+      <window_info anchor="right" id="Preview" order="4" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.50490195" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Logcat" order="7" />
+      <window_info anchor="bottom" id="Logcat" order="7" weight="0.32843137" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -2506,14 +2580,13 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.74509805" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Preview" order="4" />
+      <window_info anchor="right" x="0" y="0" width="210" height="544" id="Documentation" order="4" side_tool="true" weight="0.5132653" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" x="0" y="0" width="210" height="544" id="Documentation" order="4" side_tool="true" weight="0.5132653" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -2522,36 +2595,85 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyTab.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7956">
-          <caret line="468" column="62" lean-forward="true" selection-start-line="468" selection-start-column="62" selection-end-line="468" selection-end-column="62" />
+        <state relative-caret-position="8534">
+          <caret line="502" column="5" lean-forward="true" selection-start-line="502" selection-start-column="5" selection-end-line="502" selection-end-column="5" />
           <folding>
-            <element signature="e#1453#1473#0" expanded="true" />
-            <element signature="e#5957#10368#0" expanded="true" />
-            <element signature="e#7570#7586#0" expanded="true" />
-            <element signature="e#10367#10368#0" expanded="true" />
-            <element signature="e#12760#17171#0" expanded="true" />
-            <element signature="e#14373#14389#0" expanded="true" />
-            <element signature="e#17170#17171#0" expanded="true" />
-            <element signature="e#20322#20334#0" expanded="true" />
-            <element signature="e#20468#20469#0" expanded="true" />
-            <element signature="e#20527#20528#0" expanded="true" />
-            <element signature="e#21913#21914#0" expanded="true" />
-            <element signature="e#21957#21958#0" expanded="true" />
+            <element signature="e#1508#1528#0" expanded="true" />
+            <element signature="e#5990#10511#0" expanded="true" />
+            <element signature="e#7603#7619#0" expanded="true" />
+            <element signature="e#10510#10511#0" expanded="true" />
+            <element signature="e#11913#11927#0" expanded="true" />
+            <element signature="e#13668#13680#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/node.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyTab.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6562">
+          <caret line="386" lean-forward="true" selection-start-line="386" selection-end-line="386" />
+          <folding>
+            <element signature="e#1508#1528#0" expanded="true" />
+            <element signature="e#5990#10511#0" expanded="true" />
+            <element signature="e#7603#7619#0" expanded="true" />
+            <element signature="e#10510#10511#0" expanded="true" />
+            <element signature="e#11913#11927#0" expanded="true" />
+            <element signature="e#13668#13680#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/node.xml">
       <provider editor-type-id="android-designer2">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyTab.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7956">
+          <caret line="468" column="62" lean-forward="true" selection-start-line="468" selection-start-column="62" selection-end-line="468" selection-end-column="62" />
+          <folding>
+            <element signature="e#1508#1528#0" expanded="true" />
+            <element signature="e#5990#10511#0" expanded="true" />
+            <element signature="e#7603#7619#0" expanded="true" />
+            <element signature="e#10510#10511#0" expanded="true" />
+            <element signature="e#11913#11927#0" expanded="true" />
+            <element signature="e#13668#13680#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/node.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
@@ -2566,16 +2688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/node.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.blox/graphview/0.5.0/df040744c97e5d1ac4a96801b111f086080ef964/graphview-0.5.0-sources.jar!/de/blox/graphview/BaseGraphAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -2585,29 +2697,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/VanshavaliServices/MainServices.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+        <state relative-caret-position="238">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyTab.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="474" column="10" lean-forward="true" selection-start-line="474" selection-start-column="10" selection-end-line="474" selection-end-column="10" />
+        <state relative-caret-position="349">
+          <caret line="283" column="68" selection-start-line="283" selection-start-column="68" selection-end-line="283" selection-end-column="68" />
           <folding>
-            <element signature="e#1453#1473#0" expanded="true" />
-            <element signature="e#5957#10368#0" expanded="true" />
-            <element signature="e#7570#7586#0" expanded="true" />
-            <element signature="e#10367#10368#0" expanded="true" />
-            <element signature="e#12760#17171#0" expanded="true" />
-            <element signature="e#14373#14389#0" expanded="true" />
-            <element signature="e#17170#17171#0" expanded="true" />
-            <element signature="e#20322#20334#0" expanded="true" />
-            <element signature="e#20468#20469#0" expanded="true" />
-            <element signature="e#20527#20528#0" expanded="true" />
-            <element signature="e#21913#21914#0" expanded="true" />
-            <element signature="e#21957#21958#0" expanded="true" />
+            <element signature="e#1508#1528#0" expanded="true" />
+            <element signature="e#5990#10511#0" expanded="true" />
+            <element signature="e#7603#7619#0" expanded="true" />
+            <element signature="e#10510#10511#0" expanded="true" />
+            <element signature="e#11913#11927#0" expanded="true" />
+            <element signature="e#13668#13680#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/node.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
         </state>
       </provider>
     </entry>

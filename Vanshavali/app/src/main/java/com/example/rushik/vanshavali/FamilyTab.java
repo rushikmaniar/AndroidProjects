@@ -30,6 +30,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import VanshavaliServices.MainServices;
 import androidx.annotation.NonNull;
@@ -195,6 +196,7 @@ public class FamilyTab extends AppCompatActivity {
                                                     row.put("Icon", R.drawable.female);
                                                 row.put("MemberId", temp.getString("member_id"));
                                                 row.put("MemberName", temp.getString("member_full_name"));
+                                                row.put("MemberParentId",temp.getString("member_parent_id"));
                                                 row.put("MemberGender", temp.getString("member_gender"));
                                                 member_data.add(row);
                                                 //Log.d("Message", member_list.get(i).toString());
@@ -257,139 +259,7 @@ public class FamilyTab extends AppCompatActivity {
         adapter = new SimpleAdapter(this,
                 member_data,
                 R.layout.member_list_row,
-                new String[]{"Icon", "MemberName", "MemberId", "MemberGender"},
-                new int[]{R.id.member_list_row, R.id.member_name});
-        member_list.setAdapter(adapter);
-
-        member_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(FamilyTab.this, FamilyTab.class);
-                startActivity(i);
-            }
-        });
-
-    }
-
-    public void getMemberList1() {
-
-        //Set Tree VIew visible
-        FrameLayout TreeView = (FrameLayout)findViewById(R.id.TreeView);
-        TreeView.setVisibility(View.VISIBLE);
-
-        //List View InvisibleVisisble
-        member_list = (ListView) findViewById(R.id.member_list);
-        member_list.setVisibility(View.GONE);
-
-        //check if shared preference Key exists
-        SharedPreferences pref = FamilyTab.this.getApplicationContext().getSharedPreferences("vanshavali-pref", 0);
-        SharedPreferences.Editor edit = pref.edit();
-        if (pref.contains("vanshavali_mobile_user_email")) {
-            //check user and token
-            String user_name = pref.getString("vanshavali_mobile_user_email", "0");
-            String user_token = pref.getString("vanshavali_mobile_user_token", "0");
-            family_id = pref.getString("vanshavali_mobile_family_id", "0");
-            Log.d("user_email", user_name);
-            Log.d("user_token", user_token);
-
-
-            if (!(user_name.equals("0") || user_token.equals("0") || family_id.equals("0"))) {
-                //check if user is valid . check user exists and token
-
-                Thread memberList = new Thread() {
-                    @Override
-                    public void run() {
-                        if (MainServices.isConnectedToVanshavaliServer()) {
-                            MainServices obj = new MainServices();
-                            if (obj.isUserValid(user_name, user_token)) {
-                                //user Logged In valid. fetch family List Records
-
-                                obj.params.put("user_email", user_name);
-                                obj.params.put("token", user_token);
-                                obj.params.put("family_id", family_id);
-                                try {
-                                    String response = obj.post("MembersManage/getFamilyMemberList", obj.params);
-                                    Log.d("response :", response);
-                                    JSONObject jsonobj = new JSONObject(response);
-                                    jsonobj = jsonobj.getJSONObject("vanshavali_response");
-                                    if (jsonobj.getInt("code") == 200) {
-                                        JSONObject data = jsonobj.getJSONObject("data");
-                                        if (data.getInt("no_of_rows") > 0) {
-                                            JSONArray family_list = data.getJSONArray("member_list");
-                                            for (int i = 0; i < family_list.length(); i++) {
-
-                                                JSONObject temp = family_list.getJSONObject(i);
-
-                                                HashMap<String, Object> row = new HashMap<String, Object>();
-                                                if (temp.getString("member_gender").equals("1"))
-                                                    row.put("Icon", R.drawable.male);
-                                                else
-                                                    row.put("Icon", R.drawable.female);
-                                                row.put("MemberId", temp.getString("member_id"));
-                                                row.put("MemberName", temp.getString("member_full_name"));
-                                                row.put("MemberGender", temp.getString("member_gender"));
-                                                member_data.add(row);
-                                                //Log.d("Message", member_list.get(i).toString());
-                                            }
-
-                                        } else {
-                                            showToasty("error", FamilyTab.this, "No Data Found", Toasty.LENGTH_LONG);
-                                        }
-
-                                    } else {
-                                        showToasty("error", FamilyTab.this, jsonobj.getString("message"), Toasty.LENGTH_LONG);
-                                    }
-                                } catch (IOException e) {
-                                    Log.e("Io Exception ", e.getMessage());
-                                    showToasty("success", FamilyTab.this, e.getMessage(), Toasty.LENGTH_LONG);
-                                } catch (JSONException e) {
-                                    Log.e("Io Exception ", e.getMessage());
-                                    showToasty("error", FamilyTab.this, e.getMessage(), Toasty.LENGTH_LONG);
-                                }
-
-
-                            } else {
-                                //User is Invalid . Destroy Preference
-                                edit.clear();
-                                edit.apply();
-                                Intent i = new Intent(FamilyTab.this, LoginActivity.class);
-                                showToasty("error", FamilyTab.this, "User Invalid . Login Again", Toasty.LENGTH_LONG);
-                                startActivity(i);
-                            }
-                        } else {
-                            Log.d("Message", "In Else Part");
-                            edit.clear();
-                            edit.apply();
-                            Intent i = new Intent(FamilyTab.this, LoginActivity.class);
-                            showToasty("error", FamilyTab.this, "Server Connection Error", Toasty.LENGTH_LONG);
-                            startActivity(i);
-                        }
-                    }
-                };
-
-                memberList.start();
-                try {
-                    memberList.join();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-
-            }
-        } else {
-            //User is Invalid . Destroy Preference
-            edit.clear();
-            edit.apply();
-            Intent i = new Intent(FamilyTab.this, LoginActivity.class);
-            showToasty("error", FamilyTab.this, "User Invalid . Login Again", Toasty.LENGTH_LONG);
-            startActivity(i);
-        }
-
-
-        adapter = new SimpleAdapter(this,
-                member_data,
-                R.layout.member_list_row,
-                new String[]{"Icon", "MemberName", "MemberId", "MemberGender"},
+                new String[]{"Icon", "MemberName","MemberId", "MemberGender","MemberParentId"},
                 new int[]{R.id.member_list_row, R.id.member_name});
         member_list.setAdapter(adapter);
 
@@ -405,6 +275,28 @@ public class FamilyTab extends AppCompatActivity {
 
 
     public void getTreeView() {
+        int len = member_data.size();
+        //Node[] node_list = new Node[len];
+         HashMap<String, Node> nodes= new HashMap<String, Node>();
+        //Integer[] temp_ids = new Integer[len];
+        for(HashMap<String, ?> row:member_data){
+            String member_id = row.get("MemberId").toString();
+            String parent_id = row.get("MemberParentId").toString();
+            String name = row.get("MemberName").toString();
+            String gender = row.get("MemberGender").toString();
+            String json_data = "{'member_id':'"+member_id+"' , 'member_parent_id':'"+parent_id+"' , 'member_name':'"+name+"' , 'member_gender':'"+gender+"' , 'node_id':'"+member_id+"'}";
+            nodes.put("member_"+member_id,new Node(json_data));
+        }
+       /* for(int i=0;i<len-1;i++){
+            HashMap<String, ?> row = member_data.get(i);
+            String member_id = row.get("MemberId").toString();
+            String parent_id = row.get("MemberParentId").toString();
+            String name = row.get("MemberName").toString();
+            String gender = row.get("MemberGender").toString();
+            String json_data = "{'member_id':'"+member_id+"' , 'member_parent_id':'"+parent_id+"' , 'member_name':'"+name+"' , 'member_gender':'"+gender+"' , 'node_id':'"+member_id+"'}";
+            nodes.put("member_"+member_id,new Node(json_data));
+        }*/
+
 
         ListView member_list = (ListView)findViewById(R.id.member_list);
         member_list.setVisibility(View.GONE);
@@ -414,40 +306,27 @@ public class FamilyTab extends AppCompatActivity {
         GraphView graphView = findViewById(R.id.graph);
 
         final Graph graph = new Graph();
-        final Node node1 = new Node(getNodeText());
-        final Node node2 = new Node(getNodeText());
-        final Node node3 = new Node(getNodeText());
-        final Node node4 = new Node(getNodeText());
-        final Node node5 = new Node(getNodeText());
-        final Node node6 = new Node(getNodeText());
-        final Node node8 = new Node(getNodeText());
-        final Node node7 = new Node(getNodeText());
-        final Node node9 = new Node(getNodeText());
-        final Node node10 = new Node(getNodeText());
-        final Node node11 = new Node(getNodeText());
-        final Node node12 = new Node(getNodeText());
 
-        final Node node13 = new Node(getNodeText());
-        final Node node14 = new Node(getNodeText());
-        final Node node15 = new Node(getNodeText());
-        final Node node16 = new Node(getNodeText());
+        /*for(int i=0;i<len-1;i++){
+            HashMap<String, ?> row = member_data.get(i);
+            String member_id = row.get("MemberId").toString();
+            String parent_id = row.get("MemberParentId").toString();
+            String name = row.get("MemberName").toString();
+            String gender = row.get("MemberGender").toString();
+            Log.d("Message:","parent_id:"+parent_id + "  member_id:"+member_id);
+            if(!parent_id.equals("0"))
+                graph.addEdge(nodes.get("member_"+parent_id),nodes.get("member_"+member_id));
+        }*/
+        for(HashMap<String, ?> row:member_data){
+            String member_id = row.get("MemberId").toString();
+            String parent_id = row.get("MemberParentId").toString();
+            String name = row.get("MemberName").toString();
+            String gender = row.get("MemberGender").toString();
+            //String json_data = "{'member_id':'"+member_id+"' , 'member_parent_id':'"+parent_id+"' , 'member_name':'"+name+"' , 'member_gender':'"+gender+"' , 'node_id':'"+member_id+"'}";
+            if(!parent_id.equals("0"))
+                graph.addEdge(nodes.get("member_"+parent_id),nodes.get("member_"+member_id));
+        }
 
-
-        graph.addEdge(node1, node2);
-        graph.addEdge(node1, node3);
-        graph.addEdge(node1, node4);
-        graph.addEdge(node2, node5);
-        graph.addEdge(node2, node6);
-        graph.addEdge(node6, node7);
-        graph.addEdge(node6, node8);
-        graph.addEdge(node4, node9);
-        graph.addEdge(node4, node10);
-        graph.addEdge(node4, node11);
-        graph.addEdge(node11, node12);
-        graph.addEdge(node12, node13);
-        graph.addEdge(node12, node14);
-        graph.addEdge(node14, node15);
-        graph.addEdge(node15, node16);
 
 
         // you can set the graph via the constructor or use the adapter.setGraph(Graph) method
@@ -460,17 +339,21 @@ public class FamilyTab extends AppCompatActivity {
 
             @Override
             public void onBindViewHolder(ViewHolder viewHolder, Object data, int position) {
-                /*try{
+                try{
                     JSONObject obj = new JSONObject(data.toString());
-                    Object temp1 = obj.getString("member_name");
-                    Object temp2 = obj.getString("gender");
+                    String member_name = obj.getString("member_name");
+                    String gender = obj.getString("member_gender");
+                    viewHolder.mTextView.setText(member_name);
+                    if(gender.equals("1"))
+                        viewHolder.icon.setImageResource(R.drawable.male);
+                    else
+                        viewHolder.icon.setImageResource(R.drawable.female);
 
                 }catch (JSONException e){
                     e.printStackTrace();
-                }*/
-                viewHolder.mTextView.setText(data.toString());
-                ImageView i = new ImageView(FamilyTab.this);
-                viewHolder.icon.setImageResource(R.drawable.female);
+                }
+                Log.d("Message new ",data.toString());
+
             }
         };
 
@@ -498,9 +381,6 @@ public class FamilyTab extends AppCompatActivity {
         graphView.zoomOut();
     }
 
-    private String getNodeText() {
-        return "Node " + nodeCount++;
-    }
 
     private class ViewHolder {
         TextView mTextView;
