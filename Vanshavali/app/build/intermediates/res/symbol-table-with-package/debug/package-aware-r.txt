@@ -1201,6 +1201,7 @@ id list_item
 id main_content
 id masked
 id media_actions
+id member_image
 id member_list
 id member_list_row
 id member_name

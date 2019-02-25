@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     public SQLiteDatabase mydatabase;
     public DBAdapter myadapter;
     public TextView textview1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,14 +27,15 @@ public class MainActivity extends AppCompatActivity {
         //creat table
         mydatabase.execSQL("CREATE TABLE IF NOT EXISTS student(name VARCHAR,age INT);");*/
 
-       myadapter = new DBAdapter(getApplicationContext());
+        myadapter = new DBAdapter(getApplicationContext());
 
-       myadapter.open();
-       //myadapter.insertContact("rushik","rus@gmail.com");
+        myadapter.open();
+        //myadapter.insertContact("rushik","rus@gmail.com");
 
 
     }
-    public void btnShowRecord(View view){
+
+    public void btnShowRecord(View view) {
         //insert record
         /*mydatabase.execSQL("INSERT INTO student VALUES('rushik',1);");
 
@@ -49,33 +51,34 @@ public class MainActivity extends AppCompatActivity {
 
         Cursor c = myadapter.getAllContacts();
         String output = "";
-        while (c.moveToNext()){
-            output += "Row Id : "+c.getString(0)+" Name : " + c.getString(1) + " Email : "+c.getString(2) + "\n";
+        while (c.moveToNext()) {
+            output += "Row Id : " + c.getString(0) + " Name : " + c.getString(1) + " Email : " + c.getString(2) + "\n";
         }
 
         textview1.setText(output);
     }
-    public void btnInsertRecord(View view){
+
+    public void btnInsertRecord(View view) {
         //insert record
 
-        TextView name = (TextView)findViewById(R.id.editText_name);
-        TextView email = (TextView)findViewById(R.id.editText_email);
+        TextView name = (TextView) findViewById(R.id.editText_name);
+        TextView email = (TextView) findViewById(R.id.editText_email);
 
-        myadapter.insertContact(name.getText().toString(),email.getText().toString());
+        myadapter.insertContact(name.getText().toString(), email.getText().toString());
 
     }
 
-    public void btndeleteContact(View view){
-        TextView name = (TextView)findViewById(R.id.editText_name);
+    public void btndeleteContact(View view) {
+        TextView name = (TextView) findViewById(R.id.editText_name);
         myadapter.deleteContact(name.getText().toString());
     }
 
-    public void btnUpdateContact(View view){
-        TextView name = (TextView)findViewById(R.id.editText_name);
-        TextView email = (TextView)findViewById(R.id.editText_email);
-        TextView rowid = (TextView)findViewById(R.id.editText_row_id);
+    public void btnUpdateContact(View view) {
+        TextView name = (TextView) findViewById(R.id.editText_name);
+        TextView email = (TextView) findViewById(R.id.editText_email);
+        TextView rowid = (TextView) findViewById(R.id.editText_row_id);
         Long l = Long.parseLong(rowid.getText().toString());
-        myadapter.updateContact(l,name.getText().toString(),email.getText().toString());
+        myadapter.updateContact(l, name.getText().toString(), email.getText().toString());
 
     }
 }

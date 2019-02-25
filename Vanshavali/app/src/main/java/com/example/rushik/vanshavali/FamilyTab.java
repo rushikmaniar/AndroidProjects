@@ -16,6 +16,7 @@ import android.view.View;
 
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -270,8 +271,141 @@ public class FamilyTab extends AppCompatActivity {
 
     }
 
+    public void getMemberList1() {
+
+        //Set Tree VIew visible
+        FrameLayout TreeView = (FrameLayout)findViewById(R.id.TreeView);
+        TreeView.setVisibility(View.VISIBLE);
+
+        //List View InvisibleVisisble
+        member_list = (ListView) findViewById(R.id.member_list);
+        member_list.setVisibility(View.GONE);
+
+        //check if shared preference Key exists
+        SharedPreferences pref = FamilyTab.this.getApplicationContext().getSharedPreferences("vanshavali-pref", 0);
+        SharedPreferences.Editor edit = pref.edit();
+        if (pref.contains("vanshavali_mobile_user_email")) {
+            //check user and token
+            String user_name = pref.getString("vanshavali_mobile_user_email", "0");
+            String user_token = pref.getString("vanshavali_mobile_user_token", "0");
+            family_id = pref.getString("vanshavali_mobile_family_id", "0");
+            Log.d("user_email", user_name);
+            Log.d("user_token", user_token);
+
+
+            if (!(user_name.equals("0") || user_token.equals("0") || family_id.equals("0"))) {
+                //check if user is valid . check user exists and token
+
+                Thread memberList = new Thread() {
+                    @Override
+                    public void run() {
+                        if (MainServices.isConnectedToVanshavaliServer()) {
+                            MainServices obj = new MainServices();
+                            if (obj.isUserValid(user_name, user_token)) {
+                                //user Logged In valid. fetch family List Records
+
+                                obj.params.put("user_email", user_name);
+                                obj.params.put("token", user_token);
+                                obj.params.put("family_id", family_id);
+                                try {
+                                    String response = obj.post("MembersManage/getFamilyMemberList", obj.params);
+                                    Log.d("response :", response);
+                                    JSONObject jsonobj = new JSONObject(response);
+                                    jsonobj = jsonobj.getJSONObject("vanshavali_response");
+                                    if (jsonobj.getInt("code") == 200) {
+                                        JSONObject data = jsonobj.getJSONObject("data");
+                                        if (data.getInt("no_of_rows") > 0) {
+                                            JSONArray family_list = data.getJSONArray("member_list");
+                                            for (int i = 0; i < family_list.length(); i++) {
+
+                                                JSONObject temp = family_list.getJSONObject(i);
+
+                                                HashMap<String, Object> row = new HashMap<String, Object>();
+                                                if (temp.getString("member_gender").equals("1"))
+                                                    row.put("Icon", R.drawable.male);
+                                                else
+                                                    row.put("Icon", R.drawable.female);
+                                                row.put("MemberId", temp.getString("member_id"));
+                                                row.put("MemberName", temp.getString("member_full_name"));
+                                                row.put("MemberGender", temp.getString("member_gender"));
+                                                member_data.add(row);
+                                                //Log.d("Message", member_list.get(i).toString());
+                                            }
+
+                                        } else {
+                                            showToasty("error", FamilyTab.this, "No Data Found", Toasty.LENGTH_LONG);
+                                        }
+
+                                    } else {
+                                        showToasty("error", FamilyTab.this, jsonobj.getString("message"), Toasty.LENGTH_LONG);
+                                    }
+                                } catch (IOException e) {
+                                    Log.e("Io Exception ", e.getMessage());
+                                    showToasty("success", FamilyTab.this, e.getMessage(), Toasty.LENGTH_LONG);
+                                } catch (JSONException e) {
+                                    Log.e("Io Exception ", e.getMessage());
+                                    showToasty("error", FamilyTab.this, e.getMessage(), Toasty.LENGTH_LONG);
+                                }
+
+
+                            } else {
+                                //User is Invalid . Destroy Preference
+                                edit.clear();
+                                edit.apply();
+                                Intent i = new Intent(FamilyTab.this, LoginActivity.class);
+                                showToasty("error", FamilyTab.this, "User Invalid . Login Again", Toasty.LENGTH_LONG);
+                                startActivity(i);
+                            }
+                        } else {
+                            Log.d("Message", "In Else Part");
+                            edit.clear();
+                            edit.apply();
+                            Intent i = new Intent(FamilyTab.this, LoginActivity.class);
+                            showToasty("error", FamilyTab.this, "Server Connection Error", Toasty.LENGTH_LONG);
+                            startActivity(i);
+                        }
+                    }
+                };
+
+                memberList.start();
+                try {
+                    memberList.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        } else {
+            //User is Invalid . Destroy Preference
+            edit.clear();
+            edit.apply();
+            Intent i = new Intent(FamilyTab.this, LoginActivity.class);
+            showToasty("error", FamilyTab.this, "User Invalid . Login Again", Toasty.LENGTH_LONG);
+            startActivity(i);
+        }
+
+
+        adapter = new SimpleAdapter(this,
+                member_data,
+                R.layout.member_list_row,
+                new String[]{"Icon", "MemberName", "MemberId", "MemberGender"},
+                new int[]{R.id.member_list_row, R.id.member_name});
+        member_list.setAdapter(adapter);
+
+        member_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(FamilyTab.this, FamilyTab.class);
+                startActivity(i);
+            }
+        });
+
+    }
+
 
     public void getTreeView() {
+
         ListView member_list = (ListView)findViewById(R.id.member_list);
         member_list.setVisibility(View.GONE);
 
@@ -297,6 +431,7 @@ public class FamilyTab extends AppCompatActivity {
         final Node node14 = new Node(getNodeText());
         final Node node15 = new Node(getNodeText());
         final Node node16 = new Node(getNodeText());
+
 
         graph.addEdge(node1, node2);
         graph.addEdge(node1, node3);
@@ -325,7 +460,17 @@ public class FamilyTab extends AppCompatActivity {
 
             @Override
             public void onBindViewHolder(ViewHolder viewHolder, Object data, int position) {
+                /*try{
+                    JSONObject obj = new JSONObject(data.toString());
+                    Object temp1 = obj.getString("member_name");
+                    Object temp2 = obj.getString("gender");
+
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }*/
                 viewHolder.mTextView.setText(data.toString());
+                ImageView i = new ImageView(FamilyTab.this);
+                viewHolder.icon.setImageResource(R.drawable.female);
             }
         };
 
@@ -359,9 +504,12 @@ public class FamilyTab extends AppCompatActivity {
 
     private class ViewHolder {
         TextView mTextView;
+        ImageView icon;
 
         ViewHolder(View view) {
             mTextView = view.findViewById(R.id.member_name);
+            icon = view.findViewById(R.id.member_image);
+            icon.setImageResource(R.drawable.female);
         }
     }
 
