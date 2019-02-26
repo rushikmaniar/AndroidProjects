@@ -269,6 +269,7 @@ attr hideOnContentScroll
 attr hideOnScroll
 attr hintAnimationEnabled
 attr hintEnabled
+attr hintText
 attr hintTextAppearance
 attr homeAsUpIndicator
 attr homeLayout
@@ -1054,9 +1055,11 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable icons8_hierarchy
+drawable logout
 drawable male
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
+drawable mybuttons
 drawable navigation_empty_icon
 drawable notification_action_background
 drawable notification_bg
@@ -1075,6 +1078,9 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable tree1
 drawable tree_view
+drawable user_add
+drawable user_delete
+drawable user_edit
 drawable zoom_in
 drawable zoom_out
 id ALT
@@ -1086,6 +1092,7 @@ id SHIFT
 id SYM
 id TreeView
 id action0
+id action_add_member
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1097,12 +1104,12 @@ id action_container
 id action_context_bar
 id action_divider
 id action_image
+id action_logout
 id action_menu_divider
 id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_settings
 id action_text
 id actions
 id activity_chooser_view_content
@@ -1117,6 +1124,7 @@ id barrier
 id beginning
 id blocking
 id bottom
+id btn_add_memeber
 id btn_login
 id btn_register
 id btn_verify
@@ -1151,6 +1159,7 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
+id editText_member_name
 id editText_pass
 id editText_username
 id editText_verification_code
@@ -1186,6 +1195,7 @@ id icon_group
 id ifRoom
 id image
 id imageView
+id imageView2
 id imageView3
 id info
 id invisible
@@ -1196,14 +1206,17 @@ id largeLabel
 id left
 id line1
 id line3
+id listItems
 id listMode
 id list_item
 id main_content
 id masked
 id media_actions
+id member_gender
 id member_image
 id member_list
 id member_list_row
+id member_list_spinner
 id member_name
 id message
 id middle
@@ -1233,6 +1246,8 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
+id radioButton_female
+id radioButton_male
 id realZoom
 id right
 id right_icon
@@ -1246,6 +1261,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id search
 id search_badge
 id search_bar
 id search_button
@@ -1294,6 +1310,8 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView
+id textView2
 id textView_gotosignup
 id text_input_password_toggle
 id textinput_counter
@@ -1373,6 +1391,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_add_memeber
 layout activity_family_list
 layout activity_family_tab
 layout activity_login
@@ -1412,6 +1431,7 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout searchable_list_dialog
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -1463,6 +1483,9 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string action_add_memeber
+string action_edit_memeber
+string action_remove_memeber
 string action_settings
 string app_name
 string appbar_scrolling_view_behavior
@@ -2058,6 +2081,7 @@ styleable RecyclerView android_orientation android_descendantFocusability fastSc
 styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
+styleable SearchableSpinner hintText
 styleable Snackbar snackbarButtonStyle snackbarStyle
 styleable SnackbarLayout android_maxWidth elevation maxActionInlineWidth
 styleable Spinner android_entries android_popupBackground android_prompt android_dropDownWidth popupTheme

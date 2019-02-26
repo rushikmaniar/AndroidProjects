@@ -3,6 +3,11 @@
     <string name="title_activity_family_tab">FamilyTab</string>
     <string name="action_settings">Settings</string>
     <string name="Logout">Logout</string>
+
+    <string name="action_add_memeber">Add Memeber</string>
+    <string name="action_edit_memeber">Edit Memeber</string>
+    <string name="action_remove_memeber">Remove Memeber</string>
+
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="tab_text_1">Family Trees</string>
     <string name="tab_text_2">Members</string>

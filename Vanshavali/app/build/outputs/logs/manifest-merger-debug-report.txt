@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-46:12
+ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-42:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\9212aa0ea2dd21f8add91a5e29df0fe9\AndroidManifest.xml:17:1-24:12
 MERGED from [com.github.bmelnychuk:atv:1.2.9] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\atv-1.2.9.aar\266e1d90a351440d9bbf6ec1ed28c0d6\AndroidManifest.xml:2:1-14:12
 MERGED from [de.blox:graphview:0.5.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\graphview-0.5.0.aar\df1bbee992dac33cdab72fb80ea8ce90\AndroidManifest.xml:2:1-17:12
@@ -11,6 +11,7 @@ MERGED from [com.github.GrenderG:Toasty:1.4.0] C:\Users\DELL\.gradle\caches\tran
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\66e7833e562827c2ba25127d786c8c45\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\e7b885fcabdf26b8be02119412b15baf\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\support-v4-28.0.0.aar\19f90a0561c4e01cf1dd623bb70d31cf\AndroidManifest.xml:17:1-22:12
+MERGED from [com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\searchablespinnerlibrary-1.3.1.aar\998aade6b04353541f50340d32bd1477\AndroidManifest.xml:2:1-17:12
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\cb20b80ee90fc5feab13d3171e78a16e\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\01b260c28ae4e04c704621a9caa9e2e4\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\9d7ec02da629a40173eeddc2f343e6d3\AndroidManifest.xml:17:1-22:12
@@ -41,20 +42,20 @@ MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\DELL\.gradle\caches
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\96fffb4ea4e20e310c016f71ee5d9a32\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\41de8a9fb3fde1fb183dfb2d4f84d95c\AndroidManifest.xml:17:1-22:12
 MERGED from [com.otaliastudios:zoomlayout:1.5.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\zoomlayout-1.5.0.aar\17d4e9957f4cbd68a458f98a574d18b1\AndroidManifest.xml:2:1-11:12
-INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-42:12
 	package
 		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:3:5-44
 		INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml
-		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-46:12
+		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-42:12
 		INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml
-		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-46:12
+		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:1-42:12
 		INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:2:11-69
@@ -67,7 +68,7 @@ ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\Android
 	android:name
 		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:6:22-76
 application
-ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:8:5-44:19
+ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:8:5-40:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\9212aa0ea2dd21f8add91a5e29df0fe9\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\9212aa0ea2dd21f8add91a5e29df0fe9\AndroidManifest.xml:22:5-20
 MERGED from [com.github.bmelnychuk:atv:1.2.9] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\atv-1.2.9.aar\266e1d90a351440d9bbf6ec1ed28c0d6\AndroidManifest.xml:12:5-20
@@ -76,6 +77,8 @@ MERGED from [de.blox:graphview:0.5.0] C:\Users\DELL\.gradle\caches\transforms-1\
 MERGED from [de.blox:graphview:0.5.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\graphview-0.5.0.aar\df1bbee992dac33cdab72fb80ea8ce90\AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\e7b885fcabdf26b8be02119412b15baf\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\e7b885fcabdf26b8be02119412b15baf\AndroidManifest.xml:9:5-20
+MERGED from [com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\searchablespinnerlibrary-1.3.1.aar\998aade6b04353541f50340d32bd1477\AndroidManifest.xml:11:5-15:19
+MERGED from [com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\searchablespinnerlibrary-1.3.1.aar\998aade6b04353541f50340d32bd1477\AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\ae392a1e6f13a868b0846fe975ff5e1e\AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\ae392a1e6f13a868b0846fe975ff5e1e\AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\db507e094e493e5d741c8c2ea4f73662\AndroidManifest.xml:22:5-23:19
@@ -115,7 +118,7 @@ ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\Android
 	android:name
 		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:23:27-74
 activity#com.example.rushik.vanshavali.RegisterActivity
-ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:26:9-30:20
+ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:26:9-29:81
 	android:noHistory
 		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:28:13-37
 	android:theme
@@ -123,25 +126,29 @@ ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\Android
 	android:name
 		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:27:13-45
 activity#com.example.rushik.vanshavali.FamilyList
-ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:31:9-34:43
+ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:30:9-33:43
 	android:label
-		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:34:13-40
+		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:33:13-40
 	android:icon
-		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:33:13-60
+		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:32:13-60
 	android:name
-		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:32:13-39
+		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:31:13-39
 activity#com.example.rushik.vanshavali.FamilyTab
-ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:35:9-41:20
+ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:34:9-37:68
 	android:label
-		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:37:13-62
+		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:36:13-62
 	android:theme
-		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:38:13-56
+		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:37:13-56
 	android:name
-		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:36:13-38
+		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:35:13-38
 activity#com.example.rushik.vanshavali.VerifyUser
-ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:42:9-43:20
+ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:38:9-57
 	android:name
-		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:42:19-45
+		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:38:19-45
+activity#com.example.rushik.vanshavali.AddMember
+ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:39:9-56
+	android:name
+		ADDED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml:39:19-44
 uses-sdk
 INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Rushik\bca\Android\AndroidProjects\Vanshavali\app\src\main\AndroidManifest.xml
@@ -160,6 +167,8 @@ MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\DE
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\e7b885fcabdf26b8be02119412b15baf\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\support-v4-28.0.0.aar\19f90a0561c4e01cf1dd623bb70d31cf\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\support-v4-28.0.0.aar\19f90a0561c4e01cf1dd623bb70d31cf\AndroidManifest.xml:20:5-44
+MERGED from [com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\searchablespinnerlibrary-1.3.1.aar\998aade6b04353541f50340d32bd1477\AndroidManifest.xml:7:5-9:41
+MERGED from [com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\searchablespinnerlibrary-1.3.1.aar\998aade6b04353541f50340d32bd1477\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\cb20b80ee90fc5feab13d3171e78a16e\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\cb20b80ee90fc5feab13d3171e78a16e\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\DELL\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\01b260c28ae4e04c704621a9caa9e2e4\AndroidManifest.xml:20:5-44

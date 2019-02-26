@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Feb 25 18:44:54 IST 2019
+#Tue Feb 26 13:45:45 IST 2019
 1.base=D\:\\Rushik\\bca\\Android\\AndroidProjects\\Vanshavali\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
 2.path=bookstore.db
 0.baseType=DIRECTORY

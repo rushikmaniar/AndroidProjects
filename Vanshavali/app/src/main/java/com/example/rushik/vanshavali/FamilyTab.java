@@ -3,7 +3,6 @@ package com.example.rushik.vanshavali;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -20,7 +19,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,8 +27,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import VanshavaliServices.MainServices;
 import androidx.annotation.NonNull;
@@ -81,6 +77,7 @@ public class FamilyTab extends AppCompatActivity {
                     case "FamilyTree":
                         //goto family List Activity
                         Intent i = new Intent(FamilyTab.this, FamilyList.class);
+                        i.putExtra("family_id",family_id);
                         startActivity(i);
                         break;
 
@@ -130,7 +127,14 @@ public class FamilyTab extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if(id == R.id.action_add_member){
+
+            Intent i = new Intent(FamilyTab.this,AddMember.class);
+            startActivity(i);
+            return true;
+        }
+        if (id == R.id.action_logout) {
+            Logout();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -287,16 +291,6 @@ public class FamilyTab extends AppCompatActivity {
             String json_data = "{'member_id':'"+member_id+"' , 'member_parent_id':'"+parent_id+"' , 'member_name':'"+name+"' , 'member_gender':'"+gender+"' , 'node_id':'"+member_id+"'}";
             nodes.put("member_"+member_id,new Node(json_data));
         }
-       /* for(int i=0;i<len-1;i++){
-            HashMap<String, ?> row = member_data.get(i);
-            String member_id = row.get("MemberId").toString();
-            String parent_id = row.get("MemberParentId").toString();
-            String name = row.get("MemberName").toString();
-            String gender = row.get("MemberGender").toString();
-            String json_data = "{'member_id':'"+member_id+"' , 'member_parent_id':'"+parent_id+"' , 'member_name':'"+name+"' , 'member_gender':'"+gender+"' , 'node_id':'"+member_id+"'}";
-            nodes.put("member_"+member_id,new Node(json_data));
-        }*/
-
 
         ListView member_list = (ListView)findViewById(R.id.member_list);
         member_list.setVisibility(View.GONE);
@@ -307,16 +301,6 @@ public class FamilyTab extends AppCompatActivity {
 
         final Graph graph = new Graph();
 
-        /*for(int i=0;i<len-1;i++){
-            HashMap<String, ?> row = member_data.get(i);
-            String member_id = row.get("MemberId").toString();
-            String parent_id = row.get("MemberParentId").toString();
-            String name = row.get("MemberName").toString();
-            String gender = row.get("MemberGender").toString();
-            Log.d("Message:","parent_id:"+parent_id + "  member_id:"+member_id);
-            if(!parent_id.equals("0"))
-                graph.addEdge(nodes.get("member_"+parent_id),nodes.get("member_"+member_id));
-        }*/
         for(HashMap<String, ?> row:member_data){
             String member_id = row.get("MemberId").toString();
             String parent_id = row.get("MemberParentId").toString();
@@ -352,7 +336,7 @@ public class FamilyTab extends AppCompatActivity {
                 }catch (JSONException e){
                     e.printStackTrace();
                 }
-                Log.d("Message new ",data.toString());
+                //Log.d("Message new ",data.toString());
 
             }
         };
@@ -368,12 +352,12 @@ public class FamilyTab extends AppCompatActivity {
         adapter.setAlgorithm(new BuchheimWalkerAlgorithm(configuration));
         graphView.setAdapter(adapter);
 
-
     }
 
     public void btnzoomIn_onClick(View v) {
         GraphView graphView = findViewById(R.id.graph);
         graphView.zoomIn();
+        Toasty.success(FamilyTab.this,String.valueOf(graphView.getRealZoom()),Toasty.LENGTH_LONG).show();
     }
 
     public void btnzoomOut_onClick(View v) {
