@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -36,9 +37,10 @@ import VanshavaliServices.MainServices;
 import es.dmoral.toasty.Toasty;
 
 public class AddMember extends AppCompatActivity implements Validator.ValidationListener {
-    final static LinkedHashMap<String, String> member_data = new LinkedHashMap<String, String>();
+    //final static LinkedHashMap<String, String> member_data = new LinkedHashMap<String, String>();
+    final static ArrayList<Member> member_data = new ArrayList<>();
     public String family_id;
-    Spinner member_list_spinner;
+    SearchableSpinner member_list_spinner;
     public Validator validator;
 
     private String user_name;
@@ -59,8 +61,11 @@ public class AddMember extends AppCompatActivity implements Validator.Validation
         //edit_text_member_name
         editText_member_name = (EditText) findViewById(R.id.editText_member_name);
         //spinner view
-        member_list_spinner = (Spinner) findViewById(R.id.member_list_spinner);
+        member_list_spinner = (SearchableSpinner) findViewById(R.id.member_list_spinner);
+        member_list_spinner.setTitle("Select Item");
+        member_list_spinner.setPositiveButton("OK");
 
+        member_data.add(new Member("0","family Root","0"));
         //check if shared preference Key exists
         SharedPreferences pref = AddMember.this.getApplicationContext().getSharedPreferences("vanshavali-pref", 0);
         SharedPreferences.Editor edit = pref.edit();
@@ -76,7 +81,7 @@ public class AddMember extends AppCompatActivity implements Validator.Validation
             if (!(user_name.equals("0") || user_token.equals("0") || family_id.equals("0"))) {
                 //check if user is valid . check user exists and token
 
-                member_data.put("0", "Family Root Memeber");
+
                 Thread memberList = new Thread() {
                     @Override
                     public void run() {
@@ -107,10 +112,10 @@ public class AddMember extends AppCompatActivity implements Validator.Validation
                                                 else
                                                     row.put("Icon", R.drawable.female);
 
-                                                String temp_row = temp.getString("member_id");
+                                                String temp_member_id = temp.getString("member_id");
                                                 String temp_member_name = temp.getString("member_full_name");
 
-                                                member_data.put(temp_row, temp_member_name);
+                                                member_data.add(new Member(temp_member_id,temp_member_name,temp_member_id));
 
                                             }
 
@@ -156,9 +161,12 @@ public class AddMember extends AppCompatActivity implements Validator.Validation
                     e.printStackTrace();
                 }
 
-                LinkedHashMapAdapter<String,String>myadapter = new LinkedHashMapAdapter<String, String>(this,android.R.layout.simple_dropdown_item_1line,member_data);
+                ArrayAdapter myadapter = new ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,member_data);
                 myadapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
                 member_list_spinner.setAdapter(myadapter);
+
+
+
 
 
             }
@@ -175,10 +183,11 @@ public class AddMember extends AppCompatActivity implements Validator.Validation
     @Override
     public void onValidationSucceeded() {
 
-        Log.d("Message:",String.valueOf(member_list_spinner.getSelectedItem()));
+        Member i = (Member) member_list_spinner.getSelectedItem();
+        String member_parent_id = i.getMember_parent_id();
         //set shared prefrence
 
-        /*Thread connthread = new Thread() {
+        Thread connthread = new Thread() {
             @Override
             public void run() {
 
@@ -190,7 +199,7 @@ public class AddMember extends AppCompatActivity implements Validator.Validation
 
 
                     if(btn_female.isChecked()){
-                        member_gender = 1;
+                        member_gender = 2;
                     }
 
                     MainServices obj = new MainServices();
@@ -201,37 +210,17 @@ public class AddMember extends AppCompatActivity implements Validator.Validation
 
                         obj.params.put("member_name",editText_member_name.getText().toString());
                         obj.params.put("member_gender",String.valueOf(member_gender));
+                        obj.params.put("member_parent_id",member_parent_id);
 
                         try {
-                            String response = obj.post("MembersManage/getFamilyMemberList", obj.params);
+                            String response = obj.post("MembersManage/addFamilyMember", obj.params);
                             Log.d("response :", response);
                             JSONObject jsonobj = new JSONObject(response);
                             jsonobj = jsonobj.getJSONObject("vanshavali_response");
                             if (jsonobj.getInt("code") == 200) {
-                                JSONObject data = jsonobj.getJSONObject("data");
-                                if (data.getInt("no_of_rows") > 0) {
-                                    JSONArray family_list = data.getJSONArray("member_list");
-                                    for (int i = 0; i < family_list.length(); i++) {
-
-                                        JSONObject temp = family_list.getJSONObject(i);
-
-                                        HashMap<String, Object> row = new HashMap<String, Object>();
-                                        if (temp.getString("member_gender").equals("1"))
-                                            row.put("Icon", R.drawable.male);
-                                        else
-                                            row.put("Icon", R.drawable.female);
-
-                                        String temp_row = temp.getString("member_id");
-                                        String temp_member_name = temp.getString("member_full_name");
-
-                                        member_data.put(temp_row, temp_member_name);
-
-                                    }
-
-                                } else {
-                                    showToasty("error", AddMember.this, "No Data Found", Toasty.LENGTH_LONG);
-                                }
-
+                                showToasty("success", AddMember.this, jsonobj.getString("message"), Toasty.LENGTH_LONG);
+                                Intent i = new Intent(AddMember.this,FamilyTab.class);
+                                startActivity(i);
                             } else {
                                 showToasty("error", AddMember.this, jsonobj.getString("message"), Toasty.LENGTH_LONG);
                             }
@@ -255,7 +244,7 @@ public class AddMember extends AppCompatActivity implements Validator.Validation
             connthread.join();
         }catch (InterruptedException e){
             e.printStackTrace();
-        }*/
+        }
     }
 
     @Override
