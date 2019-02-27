@@ -3,12 +3,14 @@ package com.example.rushik.vanshavali;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -107,7 +110,7 @@ public class FamilyTab extends AppCompatActivity {
 
             }
         });
-
+        registerForContextMenu(member_list);
 
     }
 
@@ -125,7 +128,6 @@ public class FamilyTab extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if(id == R.id.action_add_member){
 
@@ -139,7 +141,55 @@ public class FamilyTab extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View view,
+                                    ContextMenu.ContextMenuInfo menuInfo)
+    {
+        super.onCreateContextMenu(menu, view, menuInfo);
+        if (view.getId() == R.id.member_list) {
+            AdapterView.AdapterContextMenuInfo info =
+                    (AdapterView.AdapterContextMenuInfo) menuInfo;
+            ListView member_list = (ListView) view;
+            HashMap<String,?> i = member_data.get(info.position);
 
+            String member_id = i.get("MemberId").toString();
+            String member_name = i.get("MemberName").toString();
+
+            menu.add("Edit Memeber");
+            menu.add("Delete Memeber");
+
+
+
+        }
+
+    }
+
+    private void createMenu(Menu menu){
+        MenuItem mnu1 = menu.add(0, 0, 0, "Item 1");
+        {
+            mnu1.setAlphabeticShortcut('a');
+        }
+        MenuItem mnu2 = menu.add(0, 1, 1, "Item 2");
+        {
+            mnu2.setAlphabeticShortcut('b');
+        }
+    }
+
+    private boolean menuChoice(MenuItem item){
+        Integer i = item.getItemId();
+        Toast.makeText(FamilyTab.this,i.toString(),Toast.LENGTH_LONG).show();
+        switch (item.getItemId()) {
+            case 0:
+                Toast.makeText(this, "You clicked on Item 1",
+                        Toast.LENGTH_LONG).show();
+                return true;
+            case 1:
+                Toast.makeText(this, "You clicked on Item 2",
+                        Toast.LENGTH_LONG).show();
+                return true;
+        }
+        return false;
+    }
     /*
      * Function To get  MemberList
      * */
@@ -267,15 +317,10 @@ public class FamilyTab extends AppCompatActivity {
                 new int[]{R.id.member_list_row, R.id.member_name});
         member_list.setAdapter(adapter);
 
-        member_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(FamilyTab.this, FamilyTab.class);
-                startActivity(i);
-            }
-        });
 
     }
+
+
 
 
     public void getTreeView() {
@@ -307,9 +352,10 @@ public class FamilyTab extends AppCompatActivity {
             String name = row.get("MemberName").toString();
             String gender = row.get("MemberGender").toString();
             //String json_data = "{'member_id':'"+member_id+"' , 'member_parent_id':'"+parent_id+"' , 'member_name':'"+name+"' , 'member_gender':'"+gender+"' , 'node_id':'"+member_id+"'}";
-            if(!parent_id.equals("0"))
+            if(!(parent_id.equals("0")))
                 graph.addEdge(nodes.get("member_"+parent_id),nodes.get("member_"+member_id));
         }
+
 
 
 

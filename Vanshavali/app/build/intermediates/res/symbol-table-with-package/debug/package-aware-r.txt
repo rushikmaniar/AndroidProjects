@@ -1039,6 +1039,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable details
 drawable details_ico
 drawable family_icon
 drawable family_member
@@ -1163,6 +1164,7 @@ id editText_member_name
 id editText_pass
 id editText_username
 id editText_verification_code
+id edit_member
 id edit_query
 id end
 id end_padder
