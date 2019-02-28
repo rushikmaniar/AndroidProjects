@@ -26,7 +26,7 @@
         <activity
             android:name=".RegisterActivity"
             android:noHistory="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".FamilyList"
             android:icon="@drawable/ic_launcher_foreground"
@@ -34,9 +34,12 @@
         <activity
             android:name=".FamilyTab"
             android:label="@string/title_activity_family_tab"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".VerifyUser"></activity>
-        <activity android:name=".AddMember"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".VerifyUser" />
+        <activity android:name=".AddMember" />
+        <activity android:name=".EditMember" />
+        <activity android:name=".AddFamilyTree" />
+        <activity android:name=".EditFamilyTree"></activity>
     </application>
 
 </manifest>

@@ -1029,6 +1029,8 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable add_family_tree
+drawable add_family_tree1
 drawable avd_hide_password
 drawable avd_show_password
 drawable border_root
@@ -1115,6 +1117,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_family_tree
 id alertTitle
 id all
 id always
@@ -1125,7 +1128,9 @@ id barrier
 id beginning
 id blocking
 id bottom
+id btn_add_family
 id btn_add_memeber
+id btn_edit_memeber
 id btn_login
 id btn_register
 id btn_verify
@@ -1160,11 +1165,11 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
+id editText_family_name
 id editText_member_name
 id editText_pass
 id editText_username
 id editText_verification_code
-id edit_member
 id edit_query
 id end
 id end_padder
@@ -1199,6 +1204,7 @@ id image
 id imageView
 id imageView2
 id imageView3
+id imageView4
 id info
 id invisible
 id italic
@@ -1314,6 +1320,7 @@ id textSpacerNoTitle
 id textStart
 id textView
 id textView2
+id textView3
 id textView_gotosignup
 id text_input_password_toggle
 id textinput_counter
@@ -1393,7 +1400,10 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_add_family_tree
 layout activity_add_memeber
+layout activity_edit_family_tree
+layout activity_edit_member
 layout activity_family_list
 layout activity_family_tab
 layout activity_login

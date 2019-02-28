@@ -1,10 +1,12 @@
 package com.example.rushik.vanshavali;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -47,6 +49,15 @@ public class FamilyTab extends AppCompatActivity {
     public ListView member_list;
     final static ArrayList<HashMap<String, ?>> member_data = new ArrayList<HashMap<String, ?>>();
     public String family_id;
+    public String member_id;
+    public String member_name;
+    public String member_gender;
+    public String member_parent_id;
+    public Boolean no_data = false;
+
+    SharedPreferences pref;
+    SharedPreferences.Editor edit;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +91,10 @@ public class FamilyTab extends AppCompatActivity {
                     case "FamilyTree":
                         //goto family List Activity
                         Intent i = new Intent(FamilyTab.this, FamilyList.class);
-                        i.putExtra("family_id",family_id);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                        i.putExtra("family_id", family_id);
                         startActivity(i);
+                        finish();
                         break;
 
                     //Show List Of Family Members
@@ -90,8 +103,12 @@ public class FamilyTab extends AppCompatActivity {
                         Toasty.success(FamilyTab.this, family_id).show();
                         break;
                     case "Treeview":
-                        getTreeView();
-                        Toasty.success(FamilyTab.this, family_id).show();
+
+                        if(!no_data)
+                            getTreeView();
+                        else
+                            Toasty.error(FamilyTab.this, "No Data For Tree View",Toasty.LENGTH_LONG).show();
+
                         break;
                     case "Calender":
                         Toasty.success(FamilyTab.this, "Calender").show();
@@ -129,9 +146,9 @@ public class FamilyTab extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        if(id == R.id.action_add_member){
+        if (id == R.id.action_add_member) {
 
-            Intent i = new Intent(FamilyTab.this,AddMember.class);
+            Intent i = new Intent(FamilyTab.this, AddMember.class);
             startActivity(i);
             return true;
         }
@@ -141,30 +158,144 @@ public class FamilyTab extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View view,
-                                    ContextMenu.ContextMenuInfo menuInfo)
-    {
+                                    ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, view, menuInfo);
         if (view.getId() == R.id.member_list) {
             AdapterView.AdapterContextMenuInfo info =
                     (AdapterView.AdapterContextMenuInfo) menuInfo;
-            ListView member_list = (ListView) view;
-            HashMap<String,?> i = member_data.get(info.position);
 
-            String member_id = i.get("MemberId").toString();
-            String member_name = i.get("MemberName").toString();
+            HashMap<String, ?> i = member_data.get(info.position);
 
-            menu.add("Edit Memeber");
-            menu.add("Delete Memeber");
+            member_id = i.get("MemberId").toString();
+            member_name = i.get("MemberName").toString();
+            member_gender = i.get("MemberGender").toString();
+            member_parent_id = i.get("MemberParentId").toString();
 
-
+            menu.add("Edit Member");
+            //menu.add
+            menu.add("Delete Member");
 
         }
 
     }
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
 
-    private void createMenu(Menu menu){
+        if (item.getTitle().equals("Edit Member")) {
+            // go to edit member Activity
+            Intent i = new Intent(FamilyTab.this,EditMember.class);
+            i.putExtra("member_id",member_id);
+            i.putExtra("member_name",member_name);
+            i.putExtra("member_gender",member_gender);
+            i.putExtra("member_parent_id",member_parent_id);
+            startActivity(i);
+
+        } else if (item.getTitle().equals("Delete Member")) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Warning")
+                    .setMessage("Member and Its children Will Be Removed?")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            deleteMember(member_id);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, null).show();
+        }
+        return true;
+    }
+
+
+    private void deleteMember(String member_id) {
+        if (pref.contains("vanshavali_mobile_user_email")) {
+            //check user and token
+            String user_name = pref.getString("vanshavali_mobile_user_email", "0");
+            String user_token = pref.getString("vanshavali_mobile_user_token", "0");
+            family_id = pref.getString("vanshavali_mobile_family_id", "0");
+            Log.d("user_email", user_name);
+            Log.d("user_token", user_token);
+
+
+            if (!(user_name.equals("0") || user_token.equals("0") || family_id.equals("0"))) {
+                //check if user is valid . check user exists and token
+
+                Thread memberList = new Thread() {
+                    @Override
+                    public void run() {
+                        if (MainServices.isConnectedToVanshavaliServer()) {
+                            MainServices obj = new MainServices();
+                            if (obj.isUserValid(user_name, user_token)) {
+                                //user Logged In valid. fetch family List Records
+
+                                obj.params.put("user_email", user_name);
+                                obj.params.put("token", user_token);
+                                obj.params.put("family_id", family_id);
+                                obj.params.put("member_id", member_id);
+                                try {
+                                    String response = obj.post("MembersManage/deleteFamilyMember", obj.params);
+                                    Log.d("response :", response);
+                                    JSONObject jsonobj = new JSONObject(response);
+                                    jsonobj = jsonobj.getJSONObject("vanshavali_response");
+                                    if (jsonobj.getInt("code") == 200) {
+                                        showToasty("success", FamilyTab.this, jsonobj.getString("message"), Toasty.LENGTH_LONG);
+                                    } else {
+                                        showToasty("error", FamilyTab.this, jsonobj.getString("message"), Toasty.LENGTH_LONG);
+                                    }
+                                } catch (IOException e) {
+                                    Log.e("Io Exception ", e.getMessage());
+                                    showToasty("success", FamilyTab.this, e.getMessage(), Toasty.LENGTH_LONG);
+                                } catch (JSONException e) {
+                                    Log.e("Io Exception ", e.getMessage());
+                                    showToasty("error", FamilyTab.this, e.getMessage(), Toasty.LENGTH_LONG);
+                                }
+                                Intent i = new Intent(FamilyTab.this,FamilyTab.class);
+
+                                startActivity(i);
+                                finish();
+
+
+                            } else {
+                                //User is Invalid . Destroy Preference
+                                edit.clear();
+                                edit.apply();
+                                Intent i = new Intent(FamilyTab.this, LoginActivity.class);
+                                showToasty("error", FamilyTab.this, "User Invalid . Login Again", Toasty.LENGTH_LONG);
+                                startActivity(i);
+                            }
+                        } else {
+                            Log.d("Message", "In Else Part");
+                            edit.clear();
+                            edit.apply();
+                            Intent i = new Intent(FamilyTab.this, LoginActivity.class);
+                            showToasty("error", FamilyTab.this, "Server Connection Error", Toasty.LENGTH_LONG);
+                            startActivity(i);
+                        }
+                    }
+                };
+
+                memberList.start();
+                try {
+                    memberList.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        } else {
+            //User is Invalid . Destroy Preference
+            edit.clear();
+            edit.apply();
+            Intent i = new Intent(FamilyTab.this, LoginActivity.class);
+            showToasty("error", FamilyTab.this, "User Invalid . Login Again", Toasty.LENGTH_LONG);
+            startActivity(i);
+        }
+    }
+
+    private void createMenu(Menu menu) {
         MenuItem mnu1 = menu.add(0, 0, 0, "Item 1");
         {
             mnu1.setAlphabeticShortcut('a');
@@ -175,9 +306,9 @@ public class FamilyTab extends AppCompatActivity {
         }
     }
 
-    private boolean menuChoice(MenuItem item){
+    private boolean menuChoice(MenuItem item) {
         Integer i = item.getItemId();
-        Toast.makeText(FamilyTab.this,i.toString(),Toast.LENGTH_LONG).show();
+        Toast.makeText(FamilyTab.this, i.toString(), Toast.LENGTH_LONG).show();
         switch (item.getItemId()) {
             case 0:
                 Toast.makeText(this, "You clicked on Item 1",
@@ -190,13 +321,14 @@ public class FamilyTab extends AppCompatActivity {
         }
         return false;
     }
+
     /*
      * Function To get  MemberList
      * */
     public void getMemberList() {
 
         //Set Tree VIew Invisible
-        FrameLayout TreeView = (FrameLayout)findViewById(R.id.TreeView);
+        FrameLayout TreeView = (FrameLayout) findViewById(R.id.TreeView);
         TreeView.setVisibility(View.GONE);
 
         //List View Visisble
@@ -205,8 +337,8 @@ public class FamilyTab extends AppCompatActivity {
         member_list.setAdapter(null);
         member_data.clear();
         //check if shared preference Key exists
-        SharedPreferences pref = FamilyTab.this.getApplicationContext().getSharedPreferences("vanshavali-pref", 0);
-        SharedPreferences.Editor edit = pref.edit();
+        pref = FamilyTab.this.getApplicationContext().getSharedPreferences("vanshavali-pref", 0);
+        edit = pref.edit();
         if (pref.contains("vanshavali_mobile_user_email")) {
             //check user and token
             String user_name = pref.getString("vanshavali_mobile_user_email", "0");
@@ -250,13 +382,14 @@ public class FamilyTab extends AppCompatActivity {
                                                     row.put("Icon", R.drawable.female);
                                                 row.put("MemberId", temp.getString("member_id"));
                                                 row.put("MemberName", temp.getString("member_full_name"));
-                                                row.put("MemberParentId",temp.getString("member_parent_id"));
+                                                row.put("MemberParentId", temp.getString("member_parent_id"));
                                                 row.put("MemberGender", temp.getString("member_gender"));
                                                 member_data.add(row);
                                                 //Log.d("Message", member_list.get(i).toString());
                                             }
 
                                         } else {
+                                            no_data = true;
                                             showToasty("error", FamilyTab.this, "No Data Found", Toasty.LENGTH_LONG);
                                         }
 
@@ -313,7 +446,7 @@ public class FamilyTab extends AppCompatActivity {
         adapter = new SimpleAdapter(this,
                 member_data,
                 R.layout.member_list_row,
-                new String[]{"Icon", "MemberName","MemberId", "MemberGender","MemberParentId"},
+                new String[]{"Icon", "MemberName", "MemberId", "MemberGender", "MemberParentId"},
                 new int[]{R.id.member_list_row, R.id.member_name});
         member_list.setAdapter(adapter);
 
@@ -321,42 +454,39 @@ public class FamilyTab extends AppCompatActivity {
     }
 
 
-
-
     public void getTreeView() {
         int len = member_data.size();
+
         //Node[] node_list = new Node[len];
-         HashMap<String, Node> nodes= new HashMap<String, Node>();
+        HashMap<String, Node> nodes = new HashMap<String, Node>();
         //Integer[] temp_ids = new Integer[len];
-        for(HashMap<String, ?> row:member_data){
+        for (HashMap<String, ?> row : member_data) {
             String member_id = row.get("MemberId").toString();
             String parent_id = row.get("MemberParentId").toString();
             String name = row.get("MemberName").toString();
             String gender = row.get("MemberGender").toString();
-            String json_data = "{'member_id':'"+member_id+"' , 'member_parent_id':'"+parent_id+"' , 'member_name':'"+name+"' , 'member_gender':'"+gender+"' , 'node_id':'"+member_id+"'}";
-            nodes.put("member_"+member_id,new Node(json_data));
+            String json_data = "{'member_id':'" + member_id + "' , 'member_parent_id':'" + parent_id + "' , 'member_name':'" + name + "' , 'member_gender':'" + gender + "' , 'node_id':'" + member_id + "'}";
+            nodes.put("member_" + member_id, new Node(json_data));
         }
 
-        ListView member_list = (ListView)findViewById(R.id.member_list);
+        ListView member_list = (ListView) findViewById(R.id.member_list);
         member_list.setVisibility(View.GONE);
 
-        FrameLayout TreeView = (FrameLayout)findViewById(R.id.TreeView);
+        FrameLayout TreeView = (FrameLayout) findViewById(R.id.TreeView);
         TreeView.setVisibility(View.VISIBLE);
         GraphView graphView = findViewById(R.id.graph);
 
         final Graph graph = new Graph();
 
-        for(HashMap<String, ?> row:member_data){
+        for (HashMap<String, ?> row : member_data) {
             String member_id = row.get("MemberId").toString();
             String parent_id = row.get("MemberParentId").toString();
             String name = row.get("MemberName").toString();
             String gender = row.get("MemberGender").toString();
             //String json_data = "{'member_id':'"+member_id+"' , 'member_parent_id':'"+parent_id+"' , 'member_name':'"+name+"' , 'member_gender':'"+gender+"' , 'node_id':'"+member_id+"'}";
-            if(!(parent_id.equals("0")))
-                graph.addEdge(nodes.get("member_"+parent_id),nodes.get("member_"+member_id));
+            if (!(parent_id.equals("0")))
+                graph.addEdge(nodes.get("member_" + parent_id), nodes.get("member_" + member_id));
         }
-
-
 
 
         // you can set the graph via the constructor or use the adapter.setGraph(Graph) method
@@ -369,17 +499,17 @@ public class FamilyTab extends AppCompatActivity {
 
             @Override
             public void onBindViewHolder(ViewHolder viewHolder, Object data, int position) {
-                try{
+                try {
                     JSONObject obj = new JSONObject(data.toString());
                     String member_name = obj.getString("member_name");
                     String gender = obj.getString("member_gender");
                     viewHolder.mTextView.setText(member_name);
-                    if(gender.equals("1"))
+                    if (gender.equals("1"))
                         viewHolder.icon.setImageResource(R.drawable.male);
                     else
                         viewHolder.icon.setImageResource(R.drawable.female);
 
-                }catch (JSONException e){
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 //Log.d("Message new ",data.toString());
@@ -403,7 +533,7 @@ public class FamilyTab extends AppCompatActivity {
     public void btnzoomIn_onClick(View v) {
         GraphView graphView = findViewById(R.id.graph);
         graphView.zoomIn();
-        Toasty.success(FamilyTab.this,String.valueOf(graphView.getRealZoom()),Toasty.LENGTH_LONG).show();
+        Toasty.success(FamilyTab.this, String.valueOf(graphView.getRealZoom()), Toasty.LENGTH_LONG).show();
     }
 
     public void btnzoomOut_onClick(View v) {

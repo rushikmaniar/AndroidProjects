@@ -64,7 +64,7 @@ public class AddMember extends AppCompatActivity implements Validator.Validation
         member_list_spinner = (SearchableSpinner) findViewById(R.id.member_list_spinner);
         member_list_spinner.setTitle("Select Item");
         member_list_spinner.setPositiveButton("OK");
-
+        member_data.clear();
         member_data.add(new Member("0","family Root","0"));
         //check if shared preference Key exists
         SharedPreferences pref = AddMember.this.getApplicationContext().getSharedPreferences("vanshavali-pref", 0);
@@ -106,16 +106,11 @@ public class AddMember extends AppCompatActivity implements Validator.Validation
 
                                                 JSONObject temp = family_list.getJSONObject(i);
 
-                                                HashMap<String, Object> row = new HashMap<String, Object>();
-                                                if (temp.getString("member_gender").equals("1"))
-                                                    row.put("Icon", R.drawable.male);
-                                                else
-                                                    row.put("Icon", R.drawable.female);
 
                                                 String temp_member_id = temp.getString("member_id");
                                                 String temp_member_name = temp.getString("member_full_name");
-
-                                                member_data.add(new Member(temp_member_id,temp_member_name,temp_member_id));
+                                                if (temp.getString("member_gender").equals("1"))
+                                                    member_data.add(new Member(temp_member_id,temp_member_name,temp_member_id));
 
                                             }
 
@@ -221,6 +216,7 @@ public class AddMember extends AppCompatActivity implements Validator.Validation
                                 showToasty("success", AddMember.this, jsonobj.getString("message"), Toasty.LENGTH_LONG);
                                 Intent i = new Intent(AddMember.this,FamilyTab.class);
                                 startActivity(i);
+                                finish();
                             } else {
                                 showToasty("error", AddMember.this, jsonobj.getString("message"), Toasty.LENGTH_LONG);
                             }

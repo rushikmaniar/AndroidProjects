@@ -1,13 +1,16 @@
 package com.example.rushik.vanshavali;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +26,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import VanshavaliServices.MainServices;
 import es.dmoral.toasty.Toasty;
@@ -31,7 +35,7 @@ public class FamilyList extends AppCompatActivity {
 
 
     final static ArrayList<HashMap<String, ?>> family_data = new ArrayList<HashMap<String, ?>>();
-
+    String family_id;
     /*static {
         HashMap<String, Object> row = new HashMap<String, Object>();
         row.put("Icon", R.drawable.family_tree);
@@ -65,6 +69,9 @@ public class FamilyList extends AppCompatActivity {
 
         getFamilyTreeList();
 
+        ListView familyList = (ListView)findViewById(R.id.family_list);
+        registerForContextMenu(familyList);
+
     }
 
     @Override
@@ -81,10 +88,62 @@ public class FamilyList extends AppCompatActivity {
             case R.id.Logout:
                 Logout();
                 return true;
+            case R.id.add_family_tree:
+                Intent i = new Intent(FamilyList.this,AddFamilyTree.class);
+                startActivity(i);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View view,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, view, menuInfo);
+        if (view.getId() == R.id.family_list) {
+            AdapterView.AdapterContextMenuInfo info =
+                    (AdapterView.AdapterContextMenuInfo) menuInfo;
+            HashMap<String, ?> i = family_data.get(info.position);
+
+            family_id = i.get("FamilyId").toString();
+
+
+            menu.add("Edit FamilyTree");
+            //menu.add
+            menu.add("Delete FamilyTree");
+
+        }
+
+    }
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        if (item.getTitle().equals("Edit FamilyTree")) {
+            // go to edit member Activity
+
+
+
+        } else if (item.getTitle().equals("Delete FamilyTree")) {
+            Toasty.success(this,"Delete Family Tree",Toasty.LENGTH_LONG).show();
+            /*new AlertDialog.Builder(this)
+                    .setTitle("Warning")
+                    .setMessage("Member and Its children Will Be Removed?")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            deleteFamilyTree(famil);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, null).show();*/
+        }
+        return true;
+    }
+
+
+
+
+
 
     public void showToasty(String type, Context c, final String toast, int length) {
         if (type.equals("error"))
