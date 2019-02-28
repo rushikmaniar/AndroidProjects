@@ -36,6 +36,9 @@ public class FamilyList extends AppCompatActivity {
 
     final static ArrayList<HashMap<String, ?>> family_data = new ArrayList<HashMap<String, ?>>();
     String family_id;
+    String family_name;
+    SharedPreferences pref;
+    SharedPreferences.Editor edit;
     /*static {
         HashMap<String, Object> row = new HashMap<String, Object>();
         row.put("Icon", R.drawable.family_tree);
@@ -59,7 +62,8 @@ public class FamilyList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_family_list);
 
-
+        pref = getApplicationContext().getSharedPreferences("vanshavali-pref", 0);
+        edit = pref.edit();
 
         ActionBar menu = getSupportActionBar();
 
@@ -107,6 +111,7 @@ public class FamilyList extends AppCompatActivity {
             HashMap<String, ?> i = family_data.get(info.position);
 
             family_id = i.get("FamilyId").toString();
+            family_name = i.get("FamilyName").toString();
 
 
             menu.add("Edit FamilyTree");
@@ -121,23 +126,111 @@ public class FamilyList extends AppCompatActivity {
 
         if (item.getTitle().equals("Edit FamilyTree")) {
             // go to edit member Activity
-
+            Intent i = new Intent(FamilyList.this,EditFamilyTree.class);
+            i.putExtra("family_id",family_id);
+            i.putExtra("family_name",family_name);
+            startActivity(i);
 
 
         } else if (item.getTitle().equals("Delete FamilyTree")) {
-            Toasty.success(this,"Delete Family Tree",Toasty.LENGTH_LONG).show();
-            /*new AlertDialog.Builder(this)
+            new AlertDialog.Builder(this)
                     .setTitle("Warning")
-                    .setMessage("Member and Its children Will Be Removed?")
+                    .setMessage("All Memeber In This Family Will Be Removed?")
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
-                            deleteFamilyTree(famil);
+                            deleteFamilyTree();
                         }
                     })
-                    .setNegativeButton(android.R.string.no, null).show();*/
+                    .setNegativeButton(android.R.string.no, null).show();
         }
         return true;
+    }
+    
+    private void deleteFamilyTree(){
+
+        if (pref.contains("vanshavali_mobile_user_email")) {
+            //check user and token
+            String user_name = pref.getString("vanshavali_mobile_user_email", "0");
+            String user_token = pref.getString("vanshavali_mobile_user_token", "0");
+
+            Log.d("user_email", user_name);
+            Log.d("user_token", user_token);
+
+
+            if (!(user_name.equals("0") || user_token.equals("0") || family_id.equals("0"))) {
+                //check if user is valid . check user exists and token
+
+                Thread memberdelete = new Thread() {
+                    @Override
+                    public void run() {
+                        if (MainServices.isConnectedToVanshavaliServer()) {
+                            MainServices obj = new MainServices();
+                            if (obj.isUserValid(user_name, user_token)) {
+                                //user Logged In valid. fetch family List Records
+
+                                obj.params.put("user_email", user_name);
+                                obj.params.put("token", user_token);
+                                obj.params.put("family_id", family_id);
+                                
+                                try {
+                                    String response = obj.post("FamilyTree/removeFamilyTree", obj.params);
+                                    Log.d("response :", response);
+                                    JSONObject jsonobj = new JSONObject(response);
+                                    jsonobj = jsonobj.getJSONObject("vanshavali_response");
+                                    if (jsonobj.getInt("code") == 200) {
+                                        showToasty("success", FamilyList.this, jsonobj.getString("message"), Toasty.LENGTH_LONG);
+                                    } else {
+                                        showToasty("error", FamilyList.this, jsonobj.getString("message"), Toasty.LENGTH_LONG);
+                                    }
+                                } catch (IOException e) {
+                                    Log.e("Io Exception ", e.getMessage());
+                                    showToasty("success", FamilyList.this, e.getMessage(), Toasty.LENGTH_LONG);
+                                } catch (JSONException e) {
+                                    Log.e("Io Exception ", e.getMessage());
+                                    showToasty("error", FamilyList.this, e.getMessage(), Toasty.LENGTH_LONG);
+                                }
+                                Intent i = new Intent(FamilyList.this,FamilyList.class);
+                                startActivity(i);
+                                finish();
+
+
+                            } else {
+                                //User is Invalid . Destroy Preference
+                                edit.clear();
+                                edit.apply();
+                                Intent i = new Intent(FamilyList.this, LoginActivity.class);
+                                showToasty("error", FamilyList.this, "User Invalid . Login Again", Toasty.LENGTH_LONG);
+                                startActivity(i);
+                            }
+                        } else {
+                            Log.d("Message", "In Else Part");
+                            edit.clear();
+                            edit.apply();
+                            Intent i = new Intent(FamilyList.this, LoginActivity.class);
+                            showToasty("error", FamilyList.this, "Server Connection Error", Toasty.LENGTH_LONG);
+                            startActivity(i);
+                        }
+                    }
+                };
+
+                memberdelete.start();
+                try {
+                    memberdelete.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        } else {
+            //User is Invalid . Destroy Preference
+            edit.clear();
+            edit.apply();
+            Intent i = new Intent(FamilyList.this, LoginActivity.class);
+            showToasty("error", FamilyList.this, "User Invalid . Login Again", Toasty.LENGTH_LONG);
+            startActivity(i);
+        }
     }
 
 

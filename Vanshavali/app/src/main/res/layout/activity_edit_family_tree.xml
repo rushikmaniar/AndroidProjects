@@ -33,10 +33,10 @@
         app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/add_family_tree1" />
+        app:srcCompat="@drawable/edit_family_tree" />
 
     <EditText
-        android:id="@+id/editText_family_name2"
+        android:id="@+id/editText_family_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"

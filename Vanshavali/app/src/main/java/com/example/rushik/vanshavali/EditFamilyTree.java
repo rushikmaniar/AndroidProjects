@@ -29,6 +29,9 @@ public class EditFamilyTree extends AppCompatActivity implements Validator.Valid
     private String user_name;
     private String user_token;
     private String family_name;
+    private String old_family_name;
+    private String family_id;
+
 
     private SharedPreferences pref;
     @NotEmpty
@@ -43,8 +46,17 @@ public class EditFamilyTree extends AppCompatActivity implements Validator.Valid
         user_token = pref.getString("vanshavali_mobile_user_token", "0");
 
 
-        //edit_text_member_name
+
+
+
+        family_id = getIntent().getExtras().getString("family_id");
+        family_name = getIntent().getExtras().getString("family_name");
+        old_family_name = family_name;
+
+        //edit_text_family_name
         editText_family_name = (EditText) findViewById(R.id.editText_family_name);
+        editText_family_name.setText(family_name);
+
 
         validator = new Validator(this);
         validator.setValidationListener(this);
@@ -63,19 +75,21 @@ public class EditFamilyTree extends AppCompatActivity implements Validator.Valid
 
                 if (MainServices.isConnectedToVanshavaliServer()) {
 
-                    editText_family_name = (EditText) findViewById(R.id.editText_member_name);
 
 
                     MainServices obj = new MainServices();
 
                     obj.params.put("user_email", user_name);
                     obj.params.put("token", user_token);
-                    obj.params.put("family_tree_name",family_name);
+
+                    obj.params.put("family_id",family_id);
+                    obj.params.put("old_family_tree_name",old_family_name);
+                    obj.params.put("new_family_tree_name",family_name);
 
 
 
                     try {
-                        String response = obj.post("FamilyTree/createFamilyTree", obj.params);
+                        String response = obj.post("FamilyTree/updateFamilyTree", obj.params);
                         JSONObject jsonobj = new JSONObject(response);
                         jsonobj = jsonobj.getJSONObject("vanshavali_response");
                         if (jsonobj.getInt("code") == 200) {

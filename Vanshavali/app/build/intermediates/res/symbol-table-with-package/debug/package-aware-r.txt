@@ -1043,11 +1043,14 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable details
 drawable details_ico
+drawable edit_family_icon
+drawable edit_family_tree
 drawable family_icon
 drawable family_member
 drawable family_tree
 drawable female
 drawable forest
+drawable forgot_password
 drawable ic_check_white_24dp
 drawable ic_clear_white_24dp
 drawable ic_error_outline_white_24dp
@@ -1076,6 +1079,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable sen_mail
 drawable toast_frame
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1129,10 +1133,12 @@ id beginning
 id blocking
 id bottom
 id btn_add_family
+id btn_add_family2
 id btn_add_memeber
 id btn_edit_memeber
 id btn_login
 id btn_register
+id btn_send_mail
 id btn_verify
 id btnzoomIn
 id btnzoomOut
@@ -1165,6 +1171,7 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
+id editText_email
 id editText_family_name
 id editText_member_name
 id editText_pass
@@ -1205,6 +1212,8 @@ id imageView
 id imageView2
 id imageView3
 id imageView4
+id imageView5
+id imageView6
 id info
 id invisible
 id italic
@@ -1321,6 +1330,8 @@ id textStart
 id textView
 id textView2
 id textView3
+id textView4
+id textView_forgotpassword
 id textView_gotosignup
 id text_input_password_toggle
 id textinput_counter
@@ -1406,6 +1417,7 @@ layout activity_edit_family_tree
 layout activity_edit_member
 layout activity_family_list
 layout activity_family_tab
+layout activity_forgot_password
 layout activity_login
 layout activity_register
 layout activity_verify_user

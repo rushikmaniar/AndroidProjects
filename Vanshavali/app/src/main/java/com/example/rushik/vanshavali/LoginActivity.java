@@ -109,6 +109,11 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
         startActivity(i);
     }
 
+    public void gotoForgotPassword(View v) {
+        Intent i = new Intent(LoginActivity.this, ForgotPassword.class);
+        startActivity(i);
+    }
+
 
     /*
      * @param View view
