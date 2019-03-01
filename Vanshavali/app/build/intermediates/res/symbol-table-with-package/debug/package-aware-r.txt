@@ -1079,6 +1079,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable reset_password
 drawable sen_mail
 drawable toast_frame
 drawable tooltip_frame_dark
@@ -1137,6 +1138,7 @@ id btn_add_family2
 id btn_add_memeber
 id btn_edit_memeber
 id btn_login
+id btn_login2
 id btn_register
 id btn_send_mail
 id btn_verify
@@ -1171,6 +1173,7 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
+id editText_conf_pass
 id editText_email
 id editText_family_name
 id editText_member_name
@@ -1214,6 +1217,7 @@ id imageView3
 id imageView4
 id imageView5
 id imageView6
+id imageView7
 id info
 id invisible
 id italic
@@ -1420,6 +1424,7 @@ layout activity_family_tab
 layout activity_forgot_password
 layout activity_login
 layout activity_register
+layout activity_reset_password
 layout activity_verify_user
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

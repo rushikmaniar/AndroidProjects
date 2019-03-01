@@ -2,6 +2,7 @@ package com.example.rushik.vanshavali;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -106,7 +107,28 @@ public class ForgotPassword extends AppCompatActivity implements Validator.Valid
             public void run() {
 
                 if (MainServices.isConnectedToVanshavaliServer()) {
+                    MainServices obj = new MainServices();
+                    obj.params.put("user_email", username);
+                    obj.params.put("random_code", editText_verification_code.getText().toString());
+                    try {
+                        String response = obj.post("login/forgotPasswordVerify", obj.params);
+                        JSONObject jsonobj = new JSONObject(response);
+                        jsonobj = jsonobj.getJSONObject("vanshavali_response");
+                        Log.d("response", response);
+                        if (jsonobj.getInt("code") == 200) {
+                            showToasty("success",ForgotPassword.this,jsonobj.getString("message"),Toasty.LENGTH_LONG);
+                            Intent i = new Intent(ForgotPassword.this,ResetPassword.class);
+                            i.putExtra("random_code",editText_verification_code.getText().toString());
+                            startActivity(i);
+                            finish();
+                        } else {
+                            showToasty("error",ForgotPassword.this,jsonobj.getString("message"),Toasty.LENGTH_LONG);
+                        }
 
+
+                    } catch (Exception e) {
+                        Log.d("response", e.getMessage());
+                    }
 
                 } else {
                     //server connection error

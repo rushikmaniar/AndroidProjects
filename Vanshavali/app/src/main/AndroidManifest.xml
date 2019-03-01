@@ -40,7 +40,8 @@
         <activity android:name=".EditMember" />
         <activity android:name=".AddFamilyTree" />
         <activity android:name=".EditFamilyTree" />
-        <activity android:name=".ForgotPassword"></activity>
+        <activity android:name=".ForgotPassword" />
+        <activity android:name=".ResetPassword"></activity>
     </application>
 
 </manifest>

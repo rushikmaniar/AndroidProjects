@@ -29,65 +29,57 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Vanshavali" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FamilyTab.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyTab.java">
+      <file leaf-file-name="ForgotPassword.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/ForgotPassword.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="339" column="8" selection-start-line="339" selection-start-column="8" selection-end-line="340" selection-end-column="27" />
+            <state relative-caret-position="272">
+              <caret line="120" column="101" selection-start-line="120" selection-start-column="101" selection-end-line="120" selection-end-column="101" />
               <folding>
-                <element signature="method#btnzoomOut_onClick#0;class#FamilyTab#0" />
-                <element signature="class#ViewHolder#0;class#FamilyTab#0" />
-                <element signature="method#Logout#0;class#FamilyTab#0" />
-                <element signature="method#showToasty#0;class#FamilyTab#0" />
+                <element signature="method#sendForgotPassword#0;class#ForgotPassword#0" />
+                <element signature="method#btn_verify#0;class#ForgotPassword#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FamilyList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="245" column="5" selection-start-line="240" selection-start-column="2" selection-end-line="245" selection-end-column="5" />
-              <folding>
-                <element signature="e#5611#8743#0" expanded="true" />
-                <element signature="e#8742#8743#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_forgot_password.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_forgot_password.xml">
+      <file leaf-file-name="activity_reset_password.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_reset_password.xml">
           <provider editor-type-id="android-designer2">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="49" column="51" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="51" />
+            <state relative-caret-position="1292">
+              <caret line="76" column="39" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ForgotPassword.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/ForgotPassword.java">
+      <file leaf-file-name="ResetPassword.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/ResetPassword.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="121" column="9" lean-forward="true" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
+            <state relative-caret-position="272">
+              <caret line="73" column="60" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
               <folding>
-                <element signature="method#isValidEmail#0;class#ForgotPassword#0" />
-                <element signature="method#sendForgotPassword#0;class#ForgotPassword#0" />
-                <element signature="e#1936#3499#0" expanded="true" />
-                <element signature="e#3498#3499#0" expanded="true" />
-                <element signature="method#loginBtnSubmit#0;class#ForgotPassword#0" />
-                <element signature="e#3820#4178#0" expanded="true" />
-                <element signature="e#4177#4178#0" expanded="true" />
+                <element signature="e#1695#3075#0" expanded="true" />
+                <element signature="e#3074#3075#0" expanded="true" />
+                <element signature="e#3725#3726#0" expanded="true" />
+                <element signature="e#3749#3750#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,12 +88,8 @@
       <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="40" column="35" selection-start-line="34" selection-start-column="4" selection-end-line="40" selection-end-column="35" />
-              <folding>
-                <element signature="e#2263#3586#0" expanded="true" />
-                <element signature="e#3585#3586#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="408">
+              <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="101" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -130,6 +118,7 @@
       <find>FamilyTab.this</find>
       <find>btnSendMailOnClick</find>
       <find>FamilyList.this</find>
+      <find>ForgotPassword.this</find>
     </findStrings>
     <replaceStrings>
       <replace>EditMember.this</replace>
@@ -137,12 +126,13 @@
       <replace>EditFamilyTree.this</replace>
       <replace>FamilyList.this</replace>
       <replace>ForgotPassword.this</replace>
+      <replace>ResetPassword.this</replace>
     </replaceStrings>
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\DELL\.gradle\wrapper\dists\gradle-4.6-all\bcst21l2brirad8k2ben1letg\gradle-4.6" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\Admin2018\.gradle\wrapper\dists\gradle-4.6-all\bcst21l2brirad8k2ben1letg\gradle-4.6" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -220,10 +210,6 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="processDebugResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="transformNativeLibsWithStripDebugSymbolForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs lint on all variants." />
@@ -917,10 +903,6 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="transformNativeLibsWithStripDebugSymbolForDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="compileDebugNdk" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
@@ -1091,10 +1073,6 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="processDebugResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="transformNativeLibsWithStripDebugSymbolForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs lint on all variants." />
@@ -1778,10 +1756,6 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="transformNativeLibsWithStripDebugSymbolForDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="compileDebugNdk" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
@@ -2427,20 +2401,20 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/AddMember.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_family_tree.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/AddFamilyTree.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/VanshavaliServices/MainServices.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_family_tree.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/EditFamilyTree.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/ResetPassword.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_reset_password.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyList.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_forgot_password.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/VanshavaliServices/MainServices.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_reset_password.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/ForgotPassword.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/ResetPassword.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1044" />
@@ -2452,8 +2426,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2461,32 +2433,12 @@
               <item name="Vanshavali" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
             </path>
-            <path>
-              <item name="Vanshavali" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="Vanshavali" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="vanshavali" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Vanshavali" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="Vanshavali" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2626,7 +2578,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1040" height="744" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -2635,24 +2587,24 @@
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32843137" />
+      <window_info anchor="right" x="0" y="0" width="210" height="544" id="Documentation" order="9" sideWeight="0.501634" side_tool="true" weight="0.32959184" />
       <window_info anchor="right" id="Preview" order="8" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36437908" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.59313726" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Logcat" order="7" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2934947" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.29285714" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32843137" />
-      <window_info anchor="right" id="Gradle" order="5" />
+      <window_info anchor="right" id="Gradle" order="5" sideWeight="0.498366" weight="0.32959184" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40359476" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40359476" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" x="0" y="0" width="210" height="544" id="Documentation" order="9" side_tool="true" weight="0.32959184" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -2669,51 +2621,21 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyList.java</url>
-          <line>151</line>
+          <line>244</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyList.java</url>
-          <line>141</line>
+          <line>234</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2958">
-          <caret line="174" column="9" lean-forward="true" selection-start-line="169" selection-start-column="12" selection-end-line="174" selection-end-column="9" />
-          <folding>
-            <element signature="method#btnzoomOut_onClick#0;class#FamilyTab#0" />
-            <element signature="class#ViewHolder#0;class#FamilyTab#0" />
-            <element signature="method#Logout#0;class#FamilyTab#0" />
-            <element signature="method#showToasty#0;class#FamilyTab#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2091">
-          <caret line="123" selection-start-line="123" selection-end-line="123" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_family_list.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/VanshavaliServices/MainServices.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -2980,8 +2902,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyTab.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="339" column="8" selection-start-line="339" selection-start-column="8" selection-end-line="340" selection-end-column="27" />
+        <state relative-caret-position="-102">
           <folding>
             <element signature="method#btnzoomOut_onClick#0;class#FamilyTab#0" />
             <element signature="class#ViewHolder#0;class#FamilyTab#0" />
@@ -2999,40 +2920,19 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="36" column="55" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="80" column="43" lean-forward="true" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/FamilyList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="245" column="5" selection-start-line="240" selection-start-column="2" selection-end-line="245" selection-end-column="5" />
-          <folding>
-            <element signature="e#5611#8743#0" expanded="true" />
-            <element signature="e#8742#8743#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/VanshavaliServices/MainServices.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+        <state relative-caret-position="5253">
+          <caret line="338" column="5" selection-start-line="333" selection-start-column="2" selection-end-line="338" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -3046,39 +2946,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/LoginActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_forgot_password.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/VanshavaliServices/MainServices.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="40" column="35" selection-start-line="34" selection-start-column="4" selection-end-line="40" selection-end-column="35" />
-          <folding>
-            <element signature="e#2263#3586#0" expanded="true" />
-            <element signature="e#3585#3586#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_forgot_password.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/forgot_password.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="80" column="43" lean-forward="true" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="101" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_reset_password.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="49" column="51" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="51" />
+        <state relative-caret-position="1292">
+          <caret line="76" column="39" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/ForgotPassword.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="121" column="9" lean-forward="true" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
+        <state relative-caret-position="272">
+          <caret line="120" column="101" selection-start-line="120" selection-start-column="101" selection-end-line="120" selection-end-column="101" />
           <folding>
-            <element signature="method#isValidEmail#0;class#ForgotPassword#0" />
             <element signature="method#sendForgotPassword#0;class#ForgotPassword#0" />
-            <element signature="e#1936#3499#0" expanded="true" />
-            <element signature="e#3498#3499#0" expanded="true" />
-            <element signature="method#loginBtnSubmit#0;class#ForgotPassword#0" />
-            <element signature="e#3820#4178#0" expanded="true" />
-            <element signature="e#4177#4178#0" expanded="true" />
+            <element signature="method#btn_verify#0;class#ForgotPassword#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/rushik/vanshavali/ResetPassword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="73" column="60" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
+          <folding>
+            <element signature="e#1695#3075#0" expanded="true" />
+            <element signature="e#3074#3075#0" expanded="true" />
+            <element signature="e#3725#3726#0" expanded="true" />
+            <element signature="e#3749#3750#0" expanded="true" />
           </folding>
         </state>
       </provider>
