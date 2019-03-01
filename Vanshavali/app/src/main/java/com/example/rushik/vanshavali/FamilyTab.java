@@ -326,7 +326,6 @@ public class FamilyTab extends AppCompatActivity {
      * Function To get  MemberList
      * */
     public void getMemberList() {
-
         //Set Tree VIew Invisible
         FrameLayout TreeView = (FrameLayout) findViewById(R.id.TreeView);
         TreeView.setVisibility(View.GONE);
